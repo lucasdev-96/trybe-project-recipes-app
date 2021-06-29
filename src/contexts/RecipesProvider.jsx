@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import RecipesContext from './RecipesContext';
 
 export default function RecipesProvider({ children }) {
@@ -9,3 +10,7 @@ export default function RecipesProvider({ children }) {
     </RecipesContext.Provider>
   );
 }
+
+RecipesProvider.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.object),
+}.isRequired;
