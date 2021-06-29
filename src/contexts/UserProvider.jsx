@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { object } from 'prop-types';
 import UserContext from './UserContext';
 
 export default function UserProvider({ children }) {
@@ -9,3 +10,7 @@ export default function UserProvider({ children }) {
     </UserContext.Provider>
   );
 }
+
+UserProvider.propTypes = {
+  children: object,
+}.isRequired;

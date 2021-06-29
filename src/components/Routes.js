@@ -20,7 +20,7 @@ import FavoriteRecipes from '../pages/FavoriteRecipes';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/" component={ Login } />
+      <Route exact path="/" component={ Login } />
       <Route path="/comidas" component={ FoodRecipes } />
       <Route path="/bebidas" component={ DrinksRecipes } />
       <Route path="/comidas/{id-da-receita}" component={ RecipesFoodDetails } />

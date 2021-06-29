@@ -1,8 +1,11 @@
 import React from 'react';
+import BottomMenu from '../components/BottomMenu';
 
 function FoodRecipes() {
   return (
-    <div />
+    <div>
+      <BottomMenu />
+    </div>
   );
 }
 
