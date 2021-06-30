@@ -21,10 +21,10 @@ export default function Routes() {
   return (
     <Switch>
       <Route exact path="/" component={ Login } />
-      <Route path="/comidas" component={ FoodRecipes } />
-      <Route path="/bebidas" component={ DrinksRecipes } />
-      <Route path="/comidas/{id-da-receita}" component={ RecipesFoodDetails } />
-      <Route path="/bebidas/{id-da-receita}" component={ RecipesDrinkDetails } />
+      <Route exact path="/comidas" component={ FoodRecipes } />
+      <Route exact path="/bebidas" component={ DrinksRecipes } />
+      <Route exact path="/comidas/{id-da-receita}" component={ RecipesFoodDetails } />
+      <Route exact path="/bebidas/{id-da-receita}" component={ RecipesDrinkDetails } />
       <Route
         path="/comidas/{id-da-receita}/in-progress"
         component={ ProgressFoodRecipes }
@@ -33,9 +33,9 @@ export default function Routes() {
         path="/bebidas/{id-da-receita}/in-progress"
         component={ ProgressDrinksRecipes }
       />
-      <Route path="/explorar" component={ ExploreRecipes } />
-      <Route path="/explorar/comidas" component={ ExploreFoodsRecipes } />
-      <Route path="/explorar/bebidas" component={ ExploreDrinksRecipes } />
+      <Route exact path="/explorar" component={ ExploreRecipes } />
+      <Route exact path="/explorar/comidas" component={ ExploreFoodsRecipes } />
+      <Route exact path="/explorar/bebidas" component={ ExploreDrinksRecipes } />
       <Route
         path="/explorar/comidas/ingredientes"
         component={ ExploreFoodsIngredients }

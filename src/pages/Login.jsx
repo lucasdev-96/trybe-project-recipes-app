@@ -25,7 +25,7 @@ function Login() {
   const { login, setLogin } = useContext(UserContext);
   const history = useHistory();
   const { email, password } = login;
-  const [showPassword, setPassword] = useState('password');
+  const [showPassword, setPasswordType] = useState('password');
   const [showOpenEye, setOpenEye] = useState(imgEye);
 
   const handleChange = ({ target: { name, value } }) => {
@@ -47,10 +47,10 @@ function Login() {
 
   const showPasswordCLick = () => {
     if (showPassword === 'password' && showOpenEye === imgEye) {
-      setPassword('text');
+      setPasswordType('text');
       setOpenEye('fas fa-eye');
     } else {
-      setPassword('password');
+      setPasswordType('password');
       setOpenEye(imgEye);
     }
   };
