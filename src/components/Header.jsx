@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import Search from '../images/searchIcon.svg';
+import SearchBar from './SearchBar';
 import '../styles/header.css';
 import ProfileIcon from '../images/profileIcon.svg';
 
@@ -50,20 +51,24 @@ function Header({ title }) {
   const handleClickPerfil = () => history.push('/perfil');
 
   return (
+    <div>
 
-    <header
-      className="fatherHeader"
-    >
-      <button onClick={ handleClickPerfil } className="searchButton" type="button">
-        <img data-testid="profile-top-btn" src={ ProfileIcon } alt="profile" />
-      </button>
-      <h1 data-testid="page-title">
-        {title}
-      </h1>
-      { verifyPathName() === true
-        ? null
-        : searchIcon()}
-    </header>
+      <header
+        className="fatherHeader"
+      >
+        <button onClick={ handleClickPerfil } className="searchButton" type="button">
+          <img data-testid="profile-top-btn" src={ ProfileIcon } alt="profile" />
+        </button>
+        <h1 data-testid="page-title">
+          {title}
+        </h1>
+        { verifyPathName() === true
+          ? null
+          : searchIcon()}
+      </header>
+
+      <SearchBar />
+    </div>
 
   );
 }
