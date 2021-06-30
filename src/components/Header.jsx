@@ -34,15 +34,17 @@ function Header({ title }) {
   };
 
   const searchIcon = () => (
-
-    <button className="searchButton" onClick={ handleClickSearchButton } type="button">
+    <div>
       {btn === true ? <input
+        className="inputSearch"
         type="text"
         placeholder="Buscar Receita"
         data-testid="search-input"
       /> : null}
-      <img data-testid="search-top-btn" src={ Search } alt="Search" />
-    </button>
+      <button className="searchButton" onClick={ handleClickSearchButton } type="button">
+        <img data-testid="search-top-btn" src={ Search } alt="Search" />
+      </button>
+    </div>
   );
 
   const handleClickPerfil = () => history.push('/perfil');
