@@ -22,6 +22,9 @@ export default function useRecipesFilter() {
     case prevCategory:
       recipes = await fetchRecipes(DRINKS_RECIPES_ENDPOINT);
       break;
+    case 'All':
+      recipes = await fetchRecipes(DRINKS_RECIPES_ENDPOINT);
+      break;
     default:
       recipes = await fetchRecipes(FILTER_DRINKS_BY_CATEGORY_ENDPOINT + category);
       break;
@@ -35,6 +38,9 @@ export default function useRecipesFilter() {
 
     switch (category) {
     case prevCategory:
+      recipes = await fetchRecipes(FOODS_RECIPES_ENDPOINT);
+      break;
+    case 'All':
       recipes = await fetchRecipes(FOODS_RECIPES_ENDPOINT);
       break;
     default:

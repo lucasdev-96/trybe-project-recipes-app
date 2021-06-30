@@ -7,7 +7,15 @@ export default function Categories({ categories, handleCategoryClick }) {
   return (
     <nav>
       <ul id="category-list">
-        <li className="category">All</li>
+        <li className="category">
+          <button
+            data-testid="All-category-filter"
+            type="button"
+            onClick={ () => handleCategoryClick('All') }
+          >
+            All
+          </button>
+        </li>
 
         {hasCategories && categories.map(({ strCategory: category }) => (
           <li
