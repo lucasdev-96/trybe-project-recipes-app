@@ -8,5 +8,7 @@ function ExploreRecipes() {
       <Header title="Explorar" />
       <BottomMenu />
     </div>
+  );
+}
 
 export default ExploreRecipes;

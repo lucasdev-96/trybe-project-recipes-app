@@ -8,5 +8,7 @@ function ExploreOriginLocal() {
       <Header title="Explorar Origem" />
       <BottomMenu />
     </div>
-    
+  );
+}
+
 export default ExploreOriginLocal;

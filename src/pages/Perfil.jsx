@@ -8,5 +8,7 @@ function Perfil() {
       <Header title="Perfil" />
       <BottomMenu />
     </div>
+  );
+}
 
 export default Perfil;
