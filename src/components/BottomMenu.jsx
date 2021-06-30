@@ -7,7 +7,7 @@ import '../styles/BottomMenu.css';
 
 export default function BottomMenu() {
   return (
-    <div data-testid="footer">
+    <div data-testid="footer" className="footer">
       <ul className="icons-container">
         <li><img data-testid="food-bottom-btn" src={ mealIcon } alt="" /></li>
         <li><img data-testid="explore-bottom-btn" src={ exploreIcon } alt="" /></li>
