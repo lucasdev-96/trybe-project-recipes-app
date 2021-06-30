@@ -20,10 +20,10 @@ export default function Routes() {
   return (
     <Switch>
       <Route exact path="/" component={ Login } />
+      <Route path="/comidas/:id" component={ RecipesFoodDetails } />
+      <Route path="/bebidas/:id" component={ RecipesDrinkDetails } />
       <Route path="/comidas" component={ Recipes } />
       <Route path="/bebidas" component={ Recipes } />
-      <Route path="/comidas/{id-da-receita}" component={ RecipesFoodDetails } />
-      <Route path="/bebidas/{id-da-receita}" component={ RecipesDrinkDetails } />
       <Route
         path="/comidas/{id-da-receita}/in-progress"
         component={ ProgressFoodRecipes }
