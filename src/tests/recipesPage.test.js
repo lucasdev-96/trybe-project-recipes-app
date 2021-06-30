@@ -5,7 +5,8 @@ import { drinksRecipes, foodsRecipes } from './mocks/recipesPageData';
 import App from '../App';
 
 const testDataID = () => {
-  for (let index = 0; index < 12; index += 1) {
+  const recipesAmount = 12;
+  for (let index = 0; index < recipesAmount; index += 1) {
     expect(screen.getByTestId(`${index}-recipe-card`)).toBeInTheDocument();
     expect(screen.getByTestId(`${index}-card-img`)).toBeInTheDocument();
     expect(screen.getByTestId(`${index}-card-name`)).toBeInTheDocument();
