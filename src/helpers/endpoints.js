@@ -1,0 +1,7 @@
+export const FOODS_CATEGORIES_ENDPOINT = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
+export const DRINKS_CATEGORIES_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
+export const FOODS_RECIPES_ENDPOINT = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+export const DRINKS_RECIPES_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+
+export const FILTER_DRINKS_BY_CATEGORY_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
+export const FILTER_FOODS_BY_CATEGORY_ENDPOINT = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';

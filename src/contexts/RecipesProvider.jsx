@@ -1,16 +1,57 @@
-import React from 'react';
-import { object } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { element } from 'prop-types';
+
 import RecipesContext from './RecipesContext';
+import { fetchCategories, fetchRecipes } from '../services/theMealAPI';
+
+import {
+  DRINKS_CATEGORIES_ENDPOINT,
+  DRINKS_RECIPES_ENDPOINT,
+  FOODS_CATEGORIES_ENDPOINT,
+  FOODS_RECIPES_ENDPOINT,
+} from '../helpers/endpoints';
 
 export default function RecipesProvider({ children }) {
-  const context = { id: 0 };
+  const [foodsCategories, setFoodsCategories] = useState([]);
+  const [drinksCategories, setDrinksCategories] = useState([]);
+
+  const [foodsRecipes, setFoodsRecipes] = useState([]);
+  const [drinksRecipes, setDrinksRecipes] = useState([]);
+
+  const context = {
+    categories: {
+      foods: foodsCategories,
+      drinks: drinksCategories,
+    },
+    recipes: {
+      foods: foodsRecipes,
+      drinks: drinksRecipes,
+    },
+    setFoodsRecipes,
+    setDrinksRecipes,
+    foodsRecipes,
+    drinksRecipes,
+  };
+
+  useEffect(() => {
+    const setFoodsAndDrinks = async () => {
+      setFoodsCategories(await fetchCategories(FOODS_CATEGORIES_ENDPOINT));
+      setDrinksCategories(await fetchCategories(DRINKS_CATEGORIES_ENDPOINT));
+
+      setFoodsRecipes(await fetchRecipes(FOODS_RECIPES_ENDPOINT));
+      setDrinksRecipes(await fetchRecipes(DRINKS_RECIPES_ENDPOINT));
+    };
+
+    setFoodsAndDrinks();
+  }, []);
+
   return (
-    <RecipesContext.Provider value={ context }>
+    <RecipesContext.Provider value={ { ...context } }>
       {children}
     </RecipesContext.Provider>
   );
 }
 
 RecipesProvider.propTypes = {
-  children: object,
+  children: element,
 }.isRequired;
