@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { element } from 'prop-types';
+
 import RecipesContext from './RecipesContext';
 import { fetchCategories, fetchRecipes } from '../services/theMealAPI';
+
 import {
   DRINKS_CATEGORIES_ENDPOINT,
   DRINKS_RECIPES_ENDPOINT,

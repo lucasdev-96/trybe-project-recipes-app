@@ -32,9 +32,9 @@ export default function Routes() {
         path="/bebidas/{id-da-receita}/in-progress"
         component={ ProgressDrinksRecipes }
       />
-      <Route path="/explorar" component={ ExploreRecipes } />
-      <Route path="/explorar/comidas" component={ ExploreFoodsRecipes } />
-      <Route path="/explorar/bebidas" component={ ExploreDrinksRecipes } />
+      <Route exact path="/explorar" component={ ExploreRecipes } />
+      <Route exact path="/explorar/comidas" component={ ExploreFoodsRecipes } />
+      <Route exact path="/explorar/bebidas" component={ ExploreDrinksRecipes } />
       <Route
         path="/explorar/comidas/ingredientes"
         component={ ExploreFoodsIngredients }

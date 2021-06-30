@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
+import BottomMenu from '../components/BottomMenu';
 import Categories from '../components/Categories';
+import Header from '../components/Header';
 import RecipesList from '../components/RecipesList';
 import RecipesContext from '../contexts/RecipesContext';
 import useRecipesFilter from '../hooks/useRecipesFilter';
@@ -27,6 +29,9 @@ export default function Recipes() {
 
   return (
     <div>
+      {isRecipesFoods && <Header title="Comidas" /> }
+      {isRecipesDrinks && <Header title="Bebidas" /> }
+
       {isRecipesFoods && <Categories
         categories={ categories.foods }
         handleCategoryClick={ handleCategoryClick }
@@ -38,6 +43,8 @@ export default function Recipes() {
 
       {isRecipesFoods && <RecipesList recipes={ recipes.foods } /> }
       {isRecipesDrinks && <RecipesList recipes={ recipes.drinks } /> }
+
+      <BottomMenu />
     </div>
   );
 }
