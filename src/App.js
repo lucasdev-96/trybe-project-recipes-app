@@ -1,11 +1,12 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Header from './components/Header';
 import './App.css';
 import rockGlass from './images/rockGlass.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserProvider from './contexts/UserProvider';
 import RecipesProvider from './contexts/RecipesProvider';
-import { BrowserRouter } from 'react-router-dom'
-import Routes from './components/Routes'
+import Routes from './components/Routes';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <RecipesProvider>
         <BrowserRouter>
           <Routes />
+          <Header />
         </BrowserRouter>
       </RecipesProvider>
     </UserProvider>
