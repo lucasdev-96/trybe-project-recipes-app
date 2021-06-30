@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import FoodRecipes from '../pages/FoodRecipes';
-import Login from '../pages/Login';
 
 describe('lower menu must have the attributes described in the prototype', () => {
   it('The bottom menu must have the attribute data-testid="footer"', () => {
