@@ -3,12 +3,22 @@ import { useRouteMatch } from 'react-router-dom';
 import Categories from '../components/Categories';
 import RecipesList from '../components/RecipesList';
 import RecipesContext from '../contexts/RecipesContext';
+import useRecipesFilter from '../hooks/useRecipesFilter';
 
 export default function Recipes() {
   const { path } = useRouteMatch();
   const [isRecipesFoods, setIsRecipesFoods] = useState(true);
   const [isRecipesDrinks, setIsRecipesDrinks] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const { categories, recipes } = useContext(RecipesContext);
+
+  const { filterDrinksByCategory, filterFoodsByCategory } = useRecipesFilter();
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    if (isRecipesDrinks) filterDrinksByCategory(category, selectedCategory);
+    if (isRecipesFoods) filterFoodsByCategory(category, selectedCategory);
+  };
 
   useEffect(() => {
     setIsRecipesFoods(path === '/comidas');
@@ -17,8 +27,14 @@ export default function Recipes() {
 
   return (
     <div>
-      {isRecipesFoods && <Categories categories={ categories.foods } /> }
-      {isRecipesDrinks && <Categories categories={ categories.drinks } /> }
+      {isRecipesFoods && <Categories
+        categories={ categories.foods }
+        handleCategoryClick={ handleCategoryClick }
+      /> }
+      {isRecipesDrinks && <Categories
+        categories={ categories.drinks }
+        handleCategoryClick={ handleCategoryClick }
+      /> }
 
       {isRecipesFoods && <RecipesList recipes={ recipes.foods } /> }
       {isRecipesDrinks && <RecipesList recipes={ recipes.drinks } /> }

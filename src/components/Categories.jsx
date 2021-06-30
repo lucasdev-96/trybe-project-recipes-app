@@ -1,20 +1,26 @@
 import React from 'react';
-import { arrayOf, object } from 'prop-types';
+import { arrayOf, object, func } from 'prop-types';
 
-export default function Categories({ categories }) {
+export default function Categories({ categories, handleCategoryClick }) {
   const hasCategories = categories.length > 0;
 
   return (
     <nav>
       <ul id="category-list">
         <li className="category">All</li>
+
         {hasCategories && categories.map(({ strCategory: category }) => (
           <li
-            data-testid={ `${category}-category-filter` }
             key={ category }
             className="category"
           >
-            { category }
+            <button
+              data-testid={ `${category}-category-filter` }
+              type="button"
+              onClick={ () => handleCategoryClick(category) }
+            >
+              { category }
+            </button>
           </li>
         ))}
       </ul>
@@ -24,4 +30,5 @@ export default function Categories({ categories }) {
 
 Categories.propTypes = {
   categories: arrayOf(object),
+  handleCategoryClick: func,
 }.isRequired;

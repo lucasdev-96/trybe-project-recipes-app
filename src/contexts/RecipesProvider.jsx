@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { element } from 'prop-types';
 import RecipesContext from './RecipesContext';
 import { fetchCategories, fetchRecipes } from '../services/theMealAPI';
-
-const FOODS_CATEGORIES_ENDPOINT = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
-const DRINKS_CATEGORIES_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
-const FOODS_RECIPES_ENDPOINT = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
-const DRINKS_RECIPES_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+import {
+  DRINKS_CATEGORIES_ENDPOINT,
+  DRINKS_RECIPES_ENDPOINT,
+  FOODS_CATEGORIES_ENDPOINT,
+  FOODS_RECIPES_ENDPOINT,
+} from '../helpers/endpoints';
 
 export default function RecipesProvider({ children }) {
   const [foodsCategories, setFoodsCategories] = useState([]);
   const [drinksCategories, setDrinksCategories] = useState([]);
+
   const [foodsRecipes, setFoodsRecipes] = useState([]);
   const [drinksRecipes, setDrinksRecipes] = useState([]);
 
@@ -23,6 +25,10 @@ export default function RecipesProvider({ children }) {
       foods: foodsRecipes,
       drinks: drinksRecipes,
     },
+    setFoodsRecipes,
+    setDrinksRecipes,
+    foodsRecipes,
+    drinksRecipes,
   };
 
   useEffect(() => {
@@ -38,11 +44,7 @@ export default function RecipesProvider({ children }) {
   }, []);
 
   return (
-    <RecipesContext.Provider
-      value={ {
-        ...context,
-      } }
-    >
+    <RecipesContext.Provider value={ { ...context } }>
       {children}
     </RecipesContext.Provider>
   );

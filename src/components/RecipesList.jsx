@@ -3,7 +3,6 @@ import { arrayOf, object } from 'prop-types';
 
 export default function RecipesList({ recipes }) {
   const hasRecipes = recipes.length > 0;
-  console.log(recipes);
 
   return (
     <div>
