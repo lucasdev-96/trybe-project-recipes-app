@@ -3,7 +3,7 @@
   background-color: red;
   bottom: 0;
   padding-top: 3em;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 
