@@ -1,0 +1,14 @@
+.searchButton {
+  background: unset;
+  border: none;
+
+}
+
+.searchButton:focus {
+  outline: none;
+}
+
+.fatherHeader {
+  display: flex;
+  justify-content: space-between;
+}
