@@ -8,5 +8,7 @@ function DrinksRecipes() {
       <Header title="Bebidas" />
       <BottomMenu />
     </div>
+  );
+}
 
 export default DrinksRecipes;
