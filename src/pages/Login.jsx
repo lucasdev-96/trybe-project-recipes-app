@@ -27,6 +27,7 @@ function Login() {
   const { email, password } = login;
   const [showPassword, setPassword] = useState('password');
   const [showOpenEye, setOpenEye] = useState(imgEye);
+
   const handleChange = ({ target: { name, value } }) => {
     setLogin({
       ...login,

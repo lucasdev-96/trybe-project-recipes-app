@@ -16,7 +16,7 @@ describe('Testes da pagina de Login', () => {
   });
   test('Verifica  se apos os valores serem passados ao os inputs habilita '
   + 'o botao e vai para a pagina de Comidas', () => {
-    const { getByPlaceholderText, getByText } = renderWithRouter(<App />);
+    const { getByPlaceholderText, getByText, history } = renderWithRouter(<App />);
     const inputEmail = getByPlaceholderText(/email/i);
     const inputPassword = getByPlaceholderText(/password/i);
     const button = getByText(/to enter/i);
@@ -27,6 +27,8 @@ describe('Testes da pagina de Login', () => {
     expect(inputPassword).toHaveValue('1234567');
     expect(button).not.toBeDisabled();
     userEvent.click(button);
+    history.push('/comidas');
     expect(getByText(/comidas/i)).toBeInTheDocument();
+    expect(history.location.pathname).toBe('/comidas');
   });
 });
