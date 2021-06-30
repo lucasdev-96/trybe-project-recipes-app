@@ -4,7 +4,10 @@ import UserContext from './UserContext';
 
 export default function UserProvider({ children }) {
   const [login, setLogin] = useState({ email: '', password: '' });
-  const context = { login, setLogin };
+  const context = {
+    login,
+    setLogin,
+  };
   return (
     <UserContext.Provider value={ context }>
       {children}
