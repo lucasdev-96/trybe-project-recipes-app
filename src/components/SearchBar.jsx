@@ -10,7 +10,7 @@ function SearchBar() {
         data-testid="ingredient-search-radio"
       />
       {' '}
-      Ingredientes...
+      Ingredientes
       <input
         type="radio"
         value="name"
@@ -18,7 +18,7 @@ function SearchBar() {
         data-testid="name-search-radio"
       />
       {' '}
-      Nome...
+      Nome
       <input
         type="radio"
         value="first-letter"
@@ -26,7 +26,7 @@ function SearchBar() {
         data-testid="first-letter-search-radio"
       />
       {' '}
-      Primeira Letra...
+      Primeira Letra
       <input type="text" placeholder="Search..." data-testid="search-input" />
       <button type="submit">clic</button>
     </div>
