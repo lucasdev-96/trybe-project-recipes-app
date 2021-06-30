@@ -8,16 +8,16 @@ import '../styles/BottomMenu.css';
 
 export default function BottomMenu() {
   return (
-    <div data-testid="footer" className="footer" style={ { position: 'fixed' } }>
+    <div data-testid="footer" className="footer">
       <ul className="icons-container">
-        <Link to="/comidas" data-testid="food-bottom-btn">
-          <li><img src={ mealIcon } alt="" /></li>
+        <Link to="/comidas">
+          <li><img data-testid="food-bottom-btn" src={ mealIcon } alt="" /></li>
         </Link>
-        <Link to="/explorar" data-testid="explore-bottom-btn">
-          <li><img src={ exploreIcon } alt="" /></li>
+        <Link to="/explorar">
+          <li><img data-testid="explore-bottom-btn" src={ exploreIcon } alt="" /></li>
         </Link>
-        <Link to="/bebidas" data-testid="drinks-bottom-btn">
-          <li><img src={ drinkIcon } alt="" /></li>
+        <Link to="/bebidas">
+          <li><img data-testid="drinks-bottom-btn" src={ drinkIcon } alt="" /></li>
         </Link>
 
       </ul>
