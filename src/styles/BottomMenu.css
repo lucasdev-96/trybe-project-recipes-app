@@ -1,0 +1,14 @@
+.footer {
+  align-items: center;
+  background-color: red;
+  bottom: 0;
+  padding-top: 3em;
+  position: fixed;
+  width: 100%;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
