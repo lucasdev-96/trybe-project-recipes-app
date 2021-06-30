@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { object } from 'prop-types';
 import UserContext from './UserContext';
 
 export default function UserProvider({ children }) {
@@ -16,5 +16,5 @@ export default function UserProvider({ children }) {
 }
 
 UserProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object),
+  children: object,
 }.isRequired;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { object } from 'prop-types';
 import RecipesContext from './RecipesContext';
 
 export default function RecipesProvider({ children }) {
@@ -12,5 +12,5 @@ export default function RecipesProvider({ children }) {
 }
 
 RecipesProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object),
+  children: object,
 }.isRequired;
