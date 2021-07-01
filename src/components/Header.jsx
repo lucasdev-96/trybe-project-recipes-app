@@ -61,8 +61,6 @@ function Header({ title }) {
           ? null
           : searchIcon()}
       </header>
-
-      <SearchBar />
     </div>
 
   );
