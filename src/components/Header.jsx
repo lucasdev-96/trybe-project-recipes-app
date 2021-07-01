@@ -5,7 +5,6 @@ import Search from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/header.css';
 import ProfileIcon from '../images/profileIcon.svg';
-import SearchBar from './SearchBar';
 
 function Header({ title }) {
   const history = useHistory();
