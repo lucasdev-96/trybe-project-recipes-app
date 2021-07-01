@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Search from '../images/searchIcon.svg';
 import '../styles/header.css';
 import ProfileIcon from '../images/profileIcon.svg';
+import SearchBar from './SearchBar';
 
 function Header({ title }) {
   const history = useHistory();
@@ -35,12 +36,7 @@ function Header({ title }) {
 
   const searchIcon = () => (
     <div>
-      {btn === true ? <input
-        className="inputSearch"
-        type="text"
-        placeholder="Buscar Receita"
-        data-testid="search-input"
-      /> : null}
+      {btn === true ? <SearchBar /> : null}
       <button className="searchButton" onClick={ handleClickSearchButton } type="button">
         <img data-testid="search-top-btn" src={ Search } alt="Search" />
       </button>

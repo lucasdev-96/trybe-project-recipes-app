@@ -12,3 +12,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.radio_buttons {
+  margin-left: 20px;
+}
