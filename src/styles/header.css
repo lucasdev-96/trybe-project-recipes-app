@@ -16,3 +16,7 @@
 .radio_buttons {
   margin-left: 20px;
 }
+
+.father_food > img {
+  width: 30px;
+}

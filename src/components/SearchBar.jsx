@@ -1,36 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import { fetchUrlRadioButtons } from '../services/theMealAPI';
 import '../styles/header.css';
-
-const foodUrl = (resultInput) => ({
-  name: `https://www.themealdb.com/api/json/v1/1/search.php?s=${resultInput}`,
-  ingrendient: `https://www.themealdb.com/api/json/v1/1/filter.php?i=${resultInput}`,
-  firstLetter: `https://www.themealdb.com/api/json/v1/1/search.php?f=${resultInput}`,
-});
+import { foodUrls, drinkUrls } from '../helpers/endpoints';
 
 function SearchBar() {
-  const [inputValue, setValue] = useState({ resultInput: '' });
+  const [inputValue, setInputValue] = useState({ resultInput: '' });
   const [responseApi, setResponseApi] = useState([]);
-  const [endPointName, setEndPointName] = useState('name');
+  const [radioButtonName, setRadioButtonName] = useState('name');
+  const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
+  const { path } = useRouteMatch();
   const { resultInput } = inputValue;
 
-  const handleClickRadioButton = async (endpoint) => {
+  const keyMealsOrDrinkFn = () => {
+    if (path === '/comidas') {
+      setkeyMealsOrDrinks('meals');
+    } else if (path === '/bebidas') {
+      setkeyMealsOrDrinks('drinks');
+    }
+  };
+
+  useEffect(() => {
+    keyMealsOrDrinkFn();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClickResponseApi = async (endpoint) => {
     const response = await fetchUrlRadioButtons(endpoint);
-    if (response.meals === null) setResponseApi([]);
-    else setResponseApi(response.meals);
+    if (response[keyMealsOrDrinks] === null) setResponseApi([]);
+    else setResponseApi(response[keyMealsOrDrinks]);
   };
 
   const handleChange = ({ target: { value: str } }) => {
-    setValue({
+    setInputValue({
       ...inputValue,
       resultInput: str,
     });
   };
   const handleSubmit = () => {
-    if (resultInput.length > 1 && endPointName === 'firstLetter') {
+    if (resultInput.length > 1 && radioButtonName === 'firstLetter') {
       // eslint-disable-next-line no-alert
       alert('Sua busca deve conter somente 1 (um) caracter');
-    } else handleClickRadioButton(foodUrl(resultInput)[endPointName]);
+    }
+    if (path === '/comidas') {
+      handleClickResponseApi(foodUrls(resultInput)[radioButtonName]);
+    } if (path === '/bebidas') {
+      handleClickResponseApi(drinkUrls(resultInput)[radioButtonName]);
+    }
+  };
+
+  const renderMapCardsDrinkOrFood = (title, img, altName) => (
+    responseApi.map((value, index) => (
+      <div className="father_food" key={ index }>
+        <h1>{value[title]}</h1>
+        <img src={ value[img] } alt={ value[altName] } />
+      </div>
+    ))
+  );
+
+  const validateMap = () => {
+    if (keyMealsOrDrinks === 'meals') {
+      return renderMapCardsDrinkOrFood('strMeal', 'strMealThumb', 'comidas');
+    } if (keyMealsOrDrinks === 'drinks') {
+      return renderMapCardsDrinkOrFood('strDrink', 'strDrinkThumb', 'bebidas');
+    }
   };
 
   return (
@@ -43,7 +76,7 @@ function SearchBar() {
           value="ingredient"
           name="nome"
           data-testid="ingredient-search-radio"
-          onClick={ () => setEndPointName('ingrendient') }
+          onClick={ () => setRadioButtonName('ingrendient') }
         />
         Ingredientes
 
@@ -57,7 +90,7 @@ function SearchBar() {
           name="nome"
           defaultChecked
           data-testid="name-search-radio"
-          onClick={ () => setEndPointName('name') }
+          onClick={ () => setRadioButtonName('name') }
         />
         Nome
       </label>
@@ -69,7 +102,7 @@ function SearchBar() {
           value="first-letter"
           name="nome"
           data-testid="first-letter-search-radio"
-          onClick={ () => setEndPointName('firstLetter') }
+          onClick={ () => setRadioButtonName('firstLetter') }
         />
         Primeira Letra
       </label>
@@ -91,12 +124,7 @@ function SearchBar() {
       >
         Buscar Comidas
       </button>
-      {responseApi.map(({ strMeal, strMealThumb, idMeal }) => (
-        <div key={ idMeal }>
-          <h1>{strMeal}</h1>
-          <img src={ strMealThumb } alt="food" />
-        </div>
-      )) }
+      {validateMap()}
     </div>
   );
 }
