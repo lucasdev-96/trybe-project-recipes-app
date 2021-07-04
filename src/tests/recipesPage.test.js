@@ -1,7 +1,9 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { useRouteMatch } from 'react-router-dom';
 import renderWithRouterAndProvider from '../renderWithRouterAndProvider';
-import { drinksRecipes, foodsRecipes } from './mocks/recipesPageData';
+import { foodsCategories, foodsRecipes } from './mocks/recipesPageData';
 import App from '../App';
 
 const testDataID = () => {
@@ -13,26 +15,16 @@ const testDataID = () => {
   }
 };
 
-describe('Tela principal', () => {
+describe('Tela de comidas', () => {
   test('Tem os data-testids de todos os 12 cards da tela de comidas', () => {
     const { history } = renderWithRouterAndProvider(<App />);
-
     history.push('/comidas');
-    testDataID();
-  });
-
-  test('Tem os data-testids de todos os 12 cards da tela de bebidas', () => {
-    const { history } = renderWithRouterAndProvider(<App />);
-
-    history.push('/bebidas');
     testDataID();
   });
 
   test('Aparece as 12 primeiras receitas na tela de comida', () => {
     const { history } = renderWithRouterAndProvider(<App />);
-
     history.push('/comidas');
-
     foodsRecipes.forEach((recipe) => {
       expect(screen.getByText(recipe.strMeal)).toBeInTheDocument();
       expect(screen.getByAltText(recipe.strMeal)).toBeInTheDocument();
@@ -41,17 +33,21 @@ describe('Tela principal', () => {
     });
   });
 
-  test('Aparece as 12 primeiras receitas na tela de bebidas', () => {
+  test('Deve mostrar as 5 primeiras categorias de comidas', () => {
     const { history } = renderWithRouterAndProvider(<App />);
-
-    history.push('/bebidas');
-    console.log(history);
-
-    drinksRecipes.forEach((recipe) => {
-      expect(screen.getByText(recipe.strDrink)).toBeInTheDocument();
-      expect(screen.getByAltText(recipe.strDrink)).toBeInTheDocument();
-      expect(screen.getByAltText(recipe.strDrink))
-        .toHaveProperty('src', recipe.strDrinkThumb);
+    history.push('/comidas');
+    foodsCategories.forEach((category) => {
+      expect(screen.getByText(category.strCategory)).toBeInTheDocument();
     });
+  });
+
+  test('Ao clicar em uma receita, deve redirecionar para a pagina de detalhes', () => {
+    const { history } = renderWithRouterAndProvider(<App />);
+    history.push('/comidas');
+
+    const firstRecipe = screen.getByTestId('0-recipe-card');
+    userEvent.click(firstRecipe);
+
+    expect(history.location.pathname).toBe('/comidas/1');
   });
 });

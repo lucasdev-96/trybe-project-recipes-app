@@ -51,51 +51,63 @@ export const drinksRecipes = [
 
 export const foodsRecipes = [
   {
+    idMeal: 1,
     strMeal: 'Corba',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/58oia61564916529.jpg',
   },
   {
+    idMeal: 2,
     strMeal: 'Kumpir',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg',
   },
   {
+    idMeal: 3,
     strMeal: 'Dal fry',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg',
   },
   {
+    idMeal: 4,
     strMeal: 'Poutine',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg',
   },
   {
+    idMeal: 5,
     strMeal: 'Lasagne',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg',
   },
   {
+    idMeal: 6,
     strMeal: 'Timbits',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg',
   },
   {
+    idMeal: 7,
     strMeal: 'Wontons',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/1525876468.jpg',
   },
   {
+    idMeal: 8,
     strMeal: 'Kafteji',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/1bsv1q1560459826.jpg',
   },
   {
+    idMeal: 9,
     strMeal: 'Big Mac',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg',
     dateModified: null,
   },
   {
+    idMeal: 10,
     strMeal: 'Kapsalon',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/sxysrt1468240488.jpg',
   },
   {
+    idMeal: 11,
     strMeal: 'Fish pie',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg',
   },
   {
+    idMeal: 12,
     strMeal: 'Pancakes',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
   },
