@@ -4,6 +4,7 @@ import BottomMenu from '../components/BottomMenu';
 import RecipeDetailsHeader from '../components/RecipeDetailsHeader';
 import { fetchRecipeDetails } from '../services/theMealAPI';
 import { DRINKS_RECIPE_DETAILS, FOODS_RECIPE_DETAILS } from '../helpers/endpoints';
+import IngredientsList from '../components/IngredientsList';
 
 const RecipeInProgress = () => {
   const { path, params } = useRouteMatch();
@@ -51,18 +52,11 @@ const RecipeInProgress = () => {
         recipeCategory={ recipeCategory }
       />
       <main>
-        <h2>Ingredients</h2>
-        <ul>
-          { ingredients.length > 0 && ingredients.map((ingredient, index) => (
-            <li
-              key={ index }
-              data-testid={ `${index}-ingredient-step` }
-            >
-              <span>{ingredient}</span>
-              <span>{ingredientsMeasures[index]}</span>
-            </li>
-          ))}
-        </ul>
+
+        <IngredientsList
+          ingredients={ ingredients }
+          ingredientsMeasures={ ingredientsMeasures }
+        />
 
         <p data-testid="instructions">{ recipe.strInstructions }</p>
 
