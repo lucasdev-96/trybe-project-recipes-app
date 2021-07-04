@@ -15,10 +15,17 @@ const RecipeInProgress = () => {
   const recipeCategory = recipeType === 'Meal'
     ? recipe.strCategory : recipe.strAlcoholic;
 
+  const ingredients = Object.entries(recipe)
+    .filter((el) => el[0].includes('strIngredient') && el[1])
+    .reduce((acc, el) => [...acc, el[1]], []);
+
+  const ingredientsMeasures = Object.entries(recipe)
+    .filter((el) => el[0].includes('strMeasure') && el[1] !== '')
+    .reduce((acc, el) => [...acc, el[1]], []);
+
   useEffect(() => {
     const recipeUrl = path.split('/')[1];
     const { id: recipeId } = params;
-
     const getRecipe = async (endpoint) => {
       setRecipe(await fetchRecipeDetails(endpoint));
     };
@@ -44,7 +51,27 @@ const RecipeInProgress = () => {
         recipeCategory={ recipeCategory }
       />
       <main>
-        instrução
+        <h2>Ingredients</h2>
+        <ul>
+          { ingredients.length > 0 && ingredients.map((ingredient, index) => (
+            <li
+              key={ index }
+              data-testid={ `${index}-ingredient-step` }
+            >
+              <span>{ingredient}</span>
+              <span>{ingredientsMeasures[index]}</span>
+            </li>
+          ))}
+        </ul>
+
+        <p data-testid="instructions">{ recipe.strInstructions }</p>
+
+        <button
+          type="button"
+          data-testid="finish-recipe-btn"
+        >
+          Finalizar receita
+        </button>
       </main>
 
       <BottomMenu />

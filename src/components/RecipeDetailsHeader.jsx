@@ -4,34 +4,39 @@ import { string } from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 
+import '../styles/recipeDetailsHeader.css';
+
 const RecipeDetailsHeader = ({
   recipeThumb,
   recipeTitle,
   recipeCategory,
 }) => (
-  <header>
+  <header id="recipe-details-header">
     <img
-      width="100%"
       src={ recipeThumb }
       alt={ recipeTitle }
       data-testid="recipe-photo"
     />
-    <h1 data-testid="recipe-title">{recipeTitle}</h1>
-    <span data-testid="recipe-category">{recipeCategory}</span>
-    <div>
-      <button
-        type="button"
-        data-testid="share-btn"
-      >
-        <img src={ shareIcon } alt="Compartilhar" />
-      </button>
+    <div className="content">
+      <div>
+        <h1 data-testid="recipe-title">{recipeTitle}</h1>
+        <span data-testid="recipe-category">{recipeCategory}</span>
+      </div>
+      <div>
+        <button
+          type="button"
+          data-testid="share-btn"
+        >
+          <img src={ shareIcon } alt="Compartilhar" />
+        </button>
 
-      <button
-        type="button"
-        data-testid="favorite-btn"
-      >
-        <img src={ whiteHeartIcon } alt="Favoritar" />
-      </button>
+        <button
+          type="button"
+          data-testid="favorite-btn"
+        >
+          <img src={ whiteHeartIcon } alt="Favoritar" />
+        </button>
+      </div>
     </div>
   </header>
 );
