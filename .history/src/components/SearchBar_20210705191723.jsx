@@ -3,16 +3,17 @@ import { useRouteMatch, useHistory } from 'react-router-dom';
 import { fetchUrlRadioButtons } from '../services/theMealAPI';
 import '../styles/header.css';
 import { foodUrls, drinkUrls } from '../helpers/endpoints';
+import { reporters } from 'mocha';
 
 function SearchBar() {
   const [inputValue, setInputValue] = useState({ resultInput: '' });
   const [responseApi, setResponseApi] = useState([]);
   const [radioButtonName, setRadioButtonName] = useState('name');
   const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
-  const [foodOrDrinkId, setFoodOrDrinkId] = useState('');
+  const [foodOrDrinkId, setFoodOrDrinkId ] = useState('');
   const { path } = useRouteMatch();
   const { resultInput } = inputValue;
-  const history = useHistory();
+  const { history } = useHistory();
 
   const keyMealsOrDrinkFn = () => {
     if (path === '/comidas') {
@@ -24,9 +25,9 @@ function SearchBar() {
 
   const keyOneFilterFn = () => {
     if (keyMealsOrDrinks === 'meals' && responseApi.length === 0) {
-      history.push(`/comidas/${foodOrDrinkId}`);
+      history.push('comida:id');
     } else if (keyMealsOrDrinks === 'drinks' && responseApi.length === 0) {
-      history.push(`/bebidas/${foodOrDrinkId}`);
+      history.push('drinks:id');
     }
   };
 
@@ -60,12 +61,17 @@ function SearchBar() {
     }
   };
 
+  const mapId = () => {
+    const idFood = responseApi.map(({idMeal}) => idMeal)
+    const idDrinks = responseApi.map(({idDrink}) => idDrink)
+    if(path === '/comidas')
+     }
+
   const renderMapCardsDrinkOrFood = (title, img, altName) => (
     responseApi.map((value, index) => (
       <div className="father_food" key={ index }>
         <h1>{value[title]}</h1>
         <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
       </div>
     ))
   );
@@ -132,11 +138,10 @@ function SearchBar() {
       <button
         type="submit"
         data-testid="exec-search-btn"
-        onClick={ () => {
+        onClick={() => {
           handleSubmit();
           keyOneFilterFn();
-          console.log(foodOrDrinkId);
-          console.log(responseApi);
+          console.log(responseApi.length);
         } }
       >
         Buscar Comidas

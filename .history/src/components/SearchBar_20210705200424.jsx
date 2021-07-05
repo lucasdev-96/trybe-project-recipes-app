@@ -65,7 +65,7 @@ function SearchBar() {
       <div className="father_food" key={ index }>
         <h1>{value[title]}</h1>
         <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
+        { console.log(value.idMeal) }
       </div>
     ))
   );

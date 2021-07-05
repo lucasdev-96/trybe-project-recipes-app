@@ -12,7 +12,7 @@ function SearchBar() {
   const [foodOrDrinkId, setFoodOrDrinkId] = useState('');
   const { path } = useRouteMatch();
   const { resultInput } = inputValue;
-  const history = useHistory();
+  const { history } = useHistory();
 
   const keyMealsOrDrinkFn = () => {
     if (path === '/comidas') {
@@ -30,8 +30,16 @@ function SearchBar() {
     }
   };
 
+  const mapId = () => {
+    const idFood = responseApi.map(({ idMeal }) => idMeal);
+    const idDrinks = responseApi.map(({ idDrink }) => idDrink);
+    if (path === '/comidas') setFoodOrDrinkId(idFood);
+    if (path === '/bebidas') setFoodOrDrinkId(idDrinks);
+  };
+
   useEffect(() => {
     keyMealsOrDrinkFn();
+    mapId();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -65,7 +73,6 @@ function SearchBar() {
       <div className="father_food" key={ index }>
         <h1>{value[title]}</h1>
         <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
       </div>
     ))
   );
@@ -134,9 +141,8 @@ function SearchBar() {
         data-testid="exec-search-btn"
         onClick={ () => {
           handleSubmit();
-          keyOneFilterFn();
-          console.log(foodOrDrinkId);
-          console.log(responseApi);
+          // keyOneFilterFn();
+          console.log(responseApi.length);
         } }
       >
         Buscar Comidas
