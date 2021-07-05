@@ -9,8 +9,8 @@ import useRecipesFilter from '../hooks/useRecipesFilter';
 
 export default function Recipes() {
   const { path } = useRouteMatch();
-  const [isRecipesFoods, setIsRecipesFoods] = useState(true);
-  const [isRecipesDrinks, setIsRecipesDrinks] = useState(false);
+  const isRecipesFoods = path.includes('comidas');
+  const isRecipesDrinks = path.includes('bebidas');
   const [selectedCategory, setSelectedCategory] = useState('');
   const { categories, recipes } = useContext(RecipesContext);
 
@@ -21,11 +21,6 @@ export default function Recipes() {
     if (isRecipesDrinks) filterDrinksByCategory(category, selectedCategory);
     if (isRecipesFoods) filterFoodsByCategory(category, selectedCategory);
   };
-
-  useEffect(() => {
-    setIsRecipesFoods(path === '/comidas');
-    setIsRecipesDrinks(path === '/bebidas');
-  }, [path]);
 
   return (
     <div>

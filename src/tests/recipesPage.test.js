@@ -2,7 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouterAndProvider from '../renderWithRouterAndProvider';
-import { drinksRecipes, foodsCategories, foodsRecipes } from './mocks/recipesPageData';
+import { drinksCategories, drinksRecipes, foodsCategories, foodsRecipes } from './mocks/recipesPageData';
 import App from '../App';
 
 const testDataID = () => {
@@ -72,7 +72,7 @@ describe('Tela de bebidas', () => {
   test('Deve mostrar as 5 primeiras categorias de bebidas', () => {
     const { history } = renderWithRouterAndProvider(<App />);
     history.push('/bebidas');
-    foodsCategories.forEach((category) => {
+    drinksCategories.forEach((category) => {
       expect(screen.getByText(category.strCategory)).toBeInTheDocument();
     });
   });
