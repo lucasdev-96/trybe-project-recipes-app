@@ -1,49 +1,61 @@
 export const drinksRecipes = [
   {
+    idDrink: 1,
     strDrink: 'GG',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960.jpg',
   },
   {
+    idDrink: 2,
     strDrink: 'A1',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg',
   },
   {
+    idDrink: 3,
     strDrink: 'ABC',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/tqpvqp1472668328.jpg',
   },
   {
+    idDrink: 4,
     strDrink: 'Kir',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/apneom1504370294.jpg',
   },
   {
+    idDrink: 5,
     strDrink: '747',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/xxsxqy1472668106.jpg',
   },
   {
+    idDrink: 6,
     strDrink: '252',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/rtpxqw1468877562.jpg',
   },
   {
+    idDrink: 7,
     strDrink: 'Ace',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/l3cd7f1504818306.jpg',
   },
   {
+    idDrink: 8,
     strDrink: 'Adam',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/v0at4i1582478473.jpg',
   },
   {
+    idDrink: 9,
     strDrink: 'B-53',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/rwqxrv1461866023.jpg',
   },
   {
+    idDrink: 10,
     strDrink: 'AT&T',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/rhhwmp1493067619.jpg',
   },
   {
+    idDrink: 11,
     strDrink: 'ACID',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/xuxpxt1479209317.jpg',
   },
   {
+    idDrink: 12,
     strDrink: 'B-52',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/5a3vg61504372070.jpg',
   },
