@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { arrayOf, string } from 'prop-types';
+import { arrayOf, func, string } from 'prop-types';
 import { useRouteMatch } from 'react-router-dom';
+
+import '../styles/IngredientsList.css';
 
 const IngredientsList = ({
   ingredients,
   ingredientsMeasures,
+  handleIngredientChecked,
 }) => {
   const { path } = useRouteMatch();
   const [isRecipeInProgress, setIsRecipeInProgress] = useState(false);
-
-  const handleIngredientChecked = ({ target }) => {
-    if (target.checked) {
-      target.parentNode.style.textDecoration = 'line-through';
-      target.classList.add('checked');
-    } else {
-      target.parentNode.style.textDecoration = 'none';
-      target.classList.remove('checked');
-    }
-  };
 
   useEffect(() => {
     if (path.includes('in-progress')) setIsRecipeInProgress(true);
@@ -26,7 +19,7 @@ const IngredientsList = ({
   return (
     <>
       <h2>Ingredients</h2>
-      <ul>
+      <ul id="ingredients-list">
         { ingredients.length > 0 && ingredients.map((ingredient, index) => (
           <li
             key={ index }
@@ -52,6 +45,7 @@ const IngredientsList = ({
 IngredientsList.propTypes = {
   ingredients: arrayOf(string),
   ingredientsMeasures: arrayOf(string),
+  handleIngredientChecked: func,
 }.isRequired;
 
 export default IngredientsList;

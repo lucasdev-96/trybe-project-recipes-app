@@ -18,6 +18,28 @@ export default function RecipesProvider({ children }) {
   const [foodsRecipes, setFoodsRecipes] = useState([]);
   const [drinksRecipes, setDrinksRecipes] = useState([]);
 
+  const [inProgressMealsRecipes, setInProgressMealsRecipes] = useState({});
+  const [inProgressCocktailsRecipes, setInProgressCocktailsRecipes] = useState({});
+
+  const [inProgressRecipes, setInProgressRecipes] = useState({
+    cocktails: inProgressCocktailsRecipes,
+    meals: inProgressMealsRecipes,
+  });
+
+  const addNewInProgressMealsRecipes = (recipe) => {
+    setInProgressMealsRecipes({
+      ...inProgressMealsRecipes,
+      ...recipe,
+    });
+  };
+
+  const addNewInProgressCocktailsRecipes = (recipe) => {
+    setInProgressCocktailsRecipes({
+      ...inProgressCocktailsRecipes,
+      ...recipe,
+    });
+  };
+
   const context = {
     categories: {
       foods: foodsCategories,
@@ -27,11 +49,21 @@ export default function RecipesProvider({ children }) {
       foods: foodsRecipes,
       drinks: drinksRecipes,
     },
+    inProgressRecipes,
     setFoodsRecipes,
     setDrinksRecipes,
     foodsRecipes,
     drinksRecipes,
+    addNewInProgressMealsRecipes,
+    addNewInProgressCocktailsRecipes,
   };
+
+  useEffect(() => {
+    setInProgressRecipes({
+      cocktails: inProgressCocktailsRecipes,
+      meals: inProgressMealsRecipes,
+    });
+  }, [inProgressCocktailsRecipes, inProgressMealsRecipes]);
 
   useEffect(() => {
     const setFoodsAndDrinks = async () => {
