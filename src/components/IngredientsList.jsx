@@ -12,8 +12,10 @@ const IngredientsList = ({
   const handleIngredientChecked = ({ target }) => {
     if (target.checked) {
       target.parentNode.style.textDecoration = 'line-through';
+      target.classList.add('checked');
     } else {
       target.parentNode.style.textDecoration = 'none';
+      target.classList.remove('checked');
     }
   };
 
