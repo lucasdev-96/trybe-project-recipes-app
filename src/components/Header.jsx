@@ -9,7 +9,8 @@ import ProfileIcon from '../images/profileIcon.svg';
 function Header({ title }) {
   const history = useHistory();
   const { location: { pathname } } = history;
-  const [btn, setBtn] = useState(false);
+  const [showButton, setBtn] = useState(false);
+
   const verifyPathName = () => {
     if (
       pathname === '/perfil'
@@ -27,7 +28,7 @@ function Header({ title }) {
   };
 
   const handleClickSearchButton = () => {
-    if (btn === false) {
+    if (!showButton) {
       setBtn(true);
     } else {
       setBtn(false);
@@ -36,15 +37,10 @@ function Header({ title }) {
 
   const searchIcon = () => (
     <div>
-      {btn === true ? <input
-        className="inputSearch"
-        type="text"
-        placeholder="Buscar Receita"
-        data-testid="search-input"
-      /> : null}
       <button className="searchButton" onClick={ handleClickSearchButton } type="button">
         <img data-testid="search-top-btn" src={ Search } alt="Search" />
       </button>
+      {showButton && <SearchBar /> }
     </div>
   );
 
@@ -62,12 +58,10 @@ function Header({ title }) {
         <h1 data-testid="page-title">
           {title}
         </h1>
-        { verifyPathName() === true
+        { verifyPathName()
           ? null
           : searchIcon()}
       </header>
-
-      <SearchBar />
     </div>
 
   );

@@ -14,6 +14,7 @@ import {
 export default function RecipesProvider({ children }) {
   const [foodsCategories, setFoodsCategories] = useState([]);
   const [drinksCategories, setDrinksCategories] = useState([]);
+  const [foodOrDrinksPathName, setfoodOrDrinksPathName] = useState('');
 
   const [foodsRecipes, setFoodsRecipes] = useState([]);
   const [drinksRecipes, setDrinksRecipes] = useState([]);
@@ -31,6 +32,8 @@ export default function RecipesProvider({ children }) {
     setDrinksRecipes,
     foodsRecipes,
     drinksRecipes,
+    foodOrDrinksPathName,
+    setfoodOrDrinksPathName,
   };
 
   useEffect(() => {

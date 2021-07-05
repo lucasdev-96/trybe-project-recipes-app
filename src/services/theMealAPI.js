@@ -15,3 +15,10 @@ export const fetchRecipes = async (endpoint) => {
   return Object.values(recipes)[0]
     .filter((recipe, index) => index <= recipesAmount);
 };
+
+export const fetchUrlRadioButtons = async (endpoint) => {
+  const response = await fetch(endpoint);
+  const recipes = await response.json();
+
+  return recipes;
+};
