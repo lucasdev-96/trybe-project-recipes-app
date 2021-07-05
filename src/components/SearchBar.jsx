@@ -37,6 +37,7 @@ function SearchBar() {
       resultInput: str,
     });
   };
+
   const handleSubmit = () => {
     if (resultInput.length > 1 && radioButtonName === 'firstLetter') {
       // eslint-disable-next-line no-alert
