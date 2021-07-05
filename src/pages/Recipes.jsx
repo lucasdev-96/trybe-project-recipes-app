@@ -12,7 +12,7 @@ export default function Recipes() {
   const [isRecipesFoods, setIsRecipesFoods] = useState(true);
   const [isRecipesDrinks, setIsRecipesDrinks] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const { categories, recipes } = useContext(RecipesContext);
+  const { categories, recipes, setfoodOrDrinksPathName } = useContext(RecipesContext);
 
   const { filterDrinksByCategory, filterFoodsByCategory } = useRecipesFilter();
 
@@ -25,6 +25,8 @@ export default function Recipes() {
   useEffect(() => {
     setIsRecipesFoods(path === '/comidas');
     setIsRecipesDrinks(path === '/bebidas');
+    setfoodOrDrinksPathName(path);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path]);
 
   return (
