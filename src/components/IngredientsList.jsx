@@ -9,6 +9,14 @@ const IngredientsList = ({
   const { path } = useRouteMatch();
   const [isRecipeInProgress, setIsRecipeInProgress] = useState(false);
 
+  const handleIngredientChecked = ({ target }) => {
+    if (target.checked) {
+      target.parentNode.style.textDecoration = 'line-through';
+    } else {
+      target.parentNode.style.textDecoration = 'none';
+    }
+  };
+
   useEffect(() => {
     if (path.includes('in-progress')) setIsRecipeInProgress(true);
   }, [path]);
@@ -23,7 +31,12 @@ const IngredientsList = ({
             data-testid={ `${index}-ingredient-step` }
           >
             <label htmlFor={ ingredient }>
-              {isRecipeInProgress && <input type="checkbox" id={ ingredient } /> }
+              {isRecipeInProgress
+              && <input
+                type="checkbox"
+                id={ ingredient }
+                onClick={ handleIngredientChecked }
+              />}
               <span>{ingredient}</span>
               <span>{ingredientsMeasures[index]}</span>
             </label>
