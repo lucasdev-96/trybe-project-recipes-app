@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouteMatch, useHistory } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { fetchUrlRadioButtons } from '../services/theMealAPI';
 import '../styles/header.css';
 import { foodUrls, drinkUrls } from '../helpers/endpoints';
@@ -9,24 +9,14 @@ function SearchBar() {
   const [responseApi, setResponseApi] = useState([]);
   const [radioButtonName, setRadioButtonName] = useState('name');
   const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
-  const [foodOrDrinkId, setFoodOrDrinkId] = useState('');
   const { path } = useRouteMatch();
   const { resultInput } = inputValue;
-  const history = useHistory();
 
   const keyMealsOrDrinkFn = () => {
     if (path === '/comidas') {
       setkeyMealsOrDrinks('meals');
     } else if (path === '/bebidas') {
       setkeyMealsOrDrinks('drinks');
-    }
-  };
-
-  const keyOneFilterFn = () => {
-    if (keyMealsOrDrinks === 'meals' && responseApi.length === 0) {
-      history.push(`/comidas/${foodOrDrinkId}`);
-    } else if (keyMealsOrDrinks === 'drinks' && responseApi.length === 0) {
-      history.push(`/bebidas/${foodOrDrinkId}`);
     }
   };
 
@@ -65,7 +55,6 @@ function SearchBar() {
       <div className="father_food" key={ index }>
         <h1>{value[title]}</h1>
         <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
       </div>
     ))
   );
@@ -132,12 +121,7 @@ function SearchBar() {
       <button
         type="submit"
         data-testid="exec-search-btn"
-        onClick={ () => {
-          handleSubmit();
-          keyOneFilterFn();
-          console.log(foodOrDrinkId);
-          console.log(responseApi);
-        } }
+        onClick={ handleSubmit }
       >
         Buscar Comidas
       </button>

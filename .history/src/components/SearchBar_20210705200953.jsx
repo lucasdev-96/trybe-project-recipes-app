@@ -137,6 +137,7 @@ function SearchBar() {
           keyOneFilterFn();
           console.log(foodOrDrinkId);
           console.log(responseApi);
+          console.log(a);
         } }
       >
         Buscar Comidas

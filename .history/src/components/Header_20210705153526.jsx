@@ -37,6 +37,10 @@ function Header({ title }) {
 
   const searchIcon = () => (
     <div>
+<<<<<<< HEAD
+      {btn === true ? <SearchBar /> : null}
+=======
+>>>>>>> f1084522716dc3d242dc8340057f45f5bc4ea885
       <button className="searchButton" onClick={ handleClickSearchButton } type="button">
         <img data-testid="search-top-btn" src={ Search } alt="Search" />
       </button>

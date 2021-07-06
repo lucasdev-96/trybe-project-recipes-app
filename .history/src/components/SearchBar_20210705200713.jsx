@@ -59,13 +59,13 @@ function SearchBar() {
       handleClickResponseApi(drinkUrls(resultInput)[radioButtonName]);
     }
   };
-
+ let a = '';
   const renderMapCardsDrinkOrFood = (title, img, altName) => (
     responseApi.map((value, index) => (
       <div className="father_food" key={ index }>
         <h1>{value[title]}</h1>
         <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
+        { a = value.idMeal }
       </div>
     ))
   );
@@ -137,6 +137,7 @@ function SearchBar() {
           keyOneFilterFn();
           console.log(foodOrDrinkId);
           console.log(responseApi);
+          console.log(a);
         } }
       >
         Buscar Comidas
