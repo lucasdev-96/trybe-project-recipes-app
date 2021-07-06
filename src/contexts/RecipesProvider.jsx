@@ -10,6 +10,7 @@ import {
   FOODS_CATEGORIES_ENDPOINT,
   FOODS_RECIPES_ENDPOINT,
 } from '../helpers/endpoints';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 export default function RecipesProvider({ children }) {
   const [foodsCategories, setFoodsCategories] = useState([]);
@@ -23,6 +24,9 @@ export default function RecipesProvider({ children }) {
     cocktails: {},
     meals: {},
   });
+
+  const { getFavoriteRecipes } = useLocalStorage();
+  const [favoriteRecipes, setFavoriteRecipes] = useState(getFavoriteRecipes());
 
   const addNewInProgressMealsRecipes = (id, ingredient) => {
     setInProgressRecipes((prevState) => {
@@ -81,6 +85,8 @@ export default function RecipesProvider({ children }) {
     addNewInProgressCocktailsRecipes,
     foodOrDrinksPathName,
     setfoodOrDrinksPathName,
+    favoriteRecipes,
+    setFavoriteRecipes,
   };
 
   useEffect(() => {

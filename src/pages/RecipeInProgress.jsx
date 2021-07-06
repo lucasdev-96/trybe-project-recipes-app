@@ -6,6 +6,7 @@ import { fetchRecipeDetails } from '../services/theMealAPI';
 import { DRINKS_RECIPE_DETAILS, FOODS_RECIPE_DETAILS } from '../helpers/endpoints';
 import IngredientsList from '../components/IngredientsList';
 import RecipesContext from '../contexts/RecipesContext';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const RecipeInProgress = () => {
   const { path } = useRouteMatch();
@@ -13,16 +14,12 @@ const RecipeInProgress = () => {
   const [recipeType, setRecipeType] = useState('');
   const [recipe, setRecipe] = useState({});
   const { inProgressRecipes } = useContext(RecipesContext);
+  const { updateFavoriteRecipes } = useLocalStorage();
 
   const {
     addNewInProgressMealsRecipes,
     addNewInProgressCocktailsRecipes,
   } = useContext(RecipesContext);
-
-  const recipeThumb = recipe[`str${recipeType}Thumb`];
-  const recipeTitle = recipe[`str${recipeType}`];
-  const recipeCategory = recipeType === 'Meal'
-    ? recipe.strCategory : recipe.strAlcoholic;
 
   const ingredients = Object.entries(recipe)
     .filter((el) => el[0].includes('strIngredient') && el[1])
@@ -53,6 +50,10 @@ const RecipeInProgress = () => {
     }
   };
 
+  const handleFavoriteClick = () => {
+    updateFavoriteRecipes(recipe, recipeType);
+  };
+
   // Busca a receita e seta o tipo dela
   useEffect(() => {
     const recipeUrl = path.split('/')[1];
@@ -79,9 +80,10 @@ const RecipeInProgress = () => {
   return (
     <>
       <RecipeDetailsHeader
-        recipeThumb={ recipeThumb }
-        recipeTitle={ recipeTitle }
-        recipeCategory={ recipeCategory }
+        recipeThumb={ recipe[`str${recipeType}Thumb`] }
+        recipeTitle={ recipe[`str${recipeType}`] }
+        recipeCategory={ recipe.strAlcoholic || recipe.strCategory }
+        handleFavoriteClick={ handleFavoriteClick }
       />
       <main>
 
