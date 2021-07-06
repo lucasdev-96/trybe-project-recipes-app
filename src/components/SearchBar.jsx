@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouteMatch, useHistory } from 'react-router-dom';
+import { useRouteMatch, Redirect } from 'react-router-dom';
 import { fetchUrlRadioButtons } from '../services/theMealAPI';
 import '../styles/header.css';
 import { foodUrls, drinkUrls } from '../helpers/endpoints';
@@ -9,24 +9,14 @@ function SearchBar() {
   const [responseApi, setResponseApi] = useState([]);
   const [radioButtonName, setRadioButtonName] = useState('name');
   const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
-  const [foodOrDrinkId, setFoodOrDrinkId] = useState('');
   const { path } = useRouteMatch();
   const { resultInput } = inputValue;
-  const history = useHistory();
 
   const keyMealsOrDrinkFn = () => {
     if (path === '/comidas') {
-      setkeyMealsOrDrinks('meals');
+      setkeyMealsOrDrinks('Meal');
     } else if (path === '/bebidas') {
-      setkeyMealsOrDrinks('drinks');
-    }
-  };
-
-  const keyOneFilterFn = () => {
-    if (keyMealsOrDrinks === 'meals' && responseApi.length === 0) {
-      history.push(`/comidas/${foodOrDrinkId}`);
-    } else if (keyMealsOrDrinks === 'drinks' && responseApi.length === 0) {
-      history.push(`/bebidas/${foodOrDrinkId}`);
+      setkeyMealsOrDrinks('Drink');
     }
   };
 
@@ -37,8 +27,8 @@ function SearchBar() {
 
   const handleClickResponseApi = async (endpoint) => {
     const response = await fetchUrlRadioButtons(endpoint);
-    if (response[keyMealsOrDrinks] === null) setResponseApi([]);
-    else setResponseApi(response[keyMealsOrDrinks]);
+    if (response === null) setResponseApi([]);
+    else setResponseApi(response);
   };
 
   const handleChange = ({ target: { value: str } }) => {
@@ -60,23 +50,21 @@ function SearchBar() {
     }
   };
 
-  const renderMapCardsDrinkOrFood = (title, img, altName) => (
+  const renderMapCardsDrinkOrFood = () => (
     responseApi.map((value, index) => (
       <div className="father_food" key={ index }>
-        <h1>{value[title]}</h1>
-        <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
+        <h1>{value[`str${keyMealsOrDrinks}`]}</h1>
+        <img
+          src={ value[`str${keyMealsOrDrinks}Thumb`] }
+          alt={ path.split('/')[1] }
+        />
       </div>
     ))
   );
 
-  const validateMap = () => {
-    if (keyMealsOrDrinks === 'meals') {
-      return renderMapCardsDrinkOrFood('strMeal', 'strMealThumb', 'comidas');
-    } if (keyMealsOrDrinks === 'drinks') {
-      return renderMapCardsDrinkOrFood('strDrink', 'strDrinkThumb', 'bebidas');
-    }
-  };
+  if (responseApi.length === 1) {
+    return <Redirect to={ `${path}/${responseApi[0][`id${keyMealsOrDrinks}`]}` } />;
+  }
 
   return (
     <div>
@@ -134,14 +122,11 @@ function SearchBar() {
         data-testid="exec-search-btn"
         onClick={ () => {
           handleSubmit();
-          keyOneFilterFn();
-          console.log(foodOrDrinkId);
-          console.log(responseApi);
         } }
       >
         Buscar Comidas
       </button>
-      {validateMap()}
+      {renderMapCardsDrinkOrFood()}
     </div>
   );
 }

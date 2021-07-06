@@ -20,5 +20,5 @@ export const fetchUrlRadioButtons = async (endpoint) => {
   const response = await fetch(endpoint);
   const recipes = await response.json();
 
-  return recipes;
+  return Object.values(recipes)[0];
 };
