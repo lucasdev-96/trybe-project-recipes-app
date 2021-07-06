@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { element } from 'prop-types';
 
 import RecipesContext from './RecipesContext';
-import API from '../services/theMealAPI';
+import { fetchCategories, fetchRecipes } from '../services/theMealAPI';
 
 import {
   DRINKS_CATEGORIES_ENDPOINT,
@@ -11,11 +11,10 @@ import {
   FOODS_RECIPES_ENDPOINT,
 } from '../helpers/endpoints';
 
-const { fetchCategories, fetchRecipes } = API;
-
 export default function RecipesProvider({ children }) {
   const [foodsCategories, setFoodsCategories] = useState([]);
   const [drinksCategories, setDrinksCategories] = useState([]);
+  const [foodOrDrinksPathName, setfoodOrDrinksPathName] = useState('');
 
   const [foodsRecipes, setFoodsRecipes] = useState([]);
   const [drinksRecipes, setDrinksRecipes] = useState([]);
@@ -58,6 +57,8 @@ export default function RecipesProvider({ children }) {
     drinksRecipes,
     addNewInProgressMealsRecipes,
     addNewInProgressCocktailsRecipes,
+    foodOrDrinksPathName,
+    setfoodOrDrinksPathName,
   };
 
   useEffect(() => {

@@ -12,3 +12,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.radio_buttons {
+  margin-left: 20px;
+}
+
+.father_food > img {
+  width: 200px;
+}

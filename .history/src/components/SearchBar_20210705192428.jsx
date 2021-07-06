@@ -12,7 +12,7 @@ function SearchBar() {
   const [foodOrDrinkId, setFoodOrDrinkId] = useState('');
   const { path } = useRouteMatch();
   const { resultInput } = inputValue;
-  const history = useHistory();
+  const { history } = useHistory();
 
   const keyMealsOrDrinkFn = () => {
     if (path === '/comidas') {
@@ -24,14 +24,22 @@ function SearchBar() {
 
   const keyOneFilterFn = () => {
     if (keyMealsOrDrinks === 'meals' && responseApi.length === 0) {
-      history.push(`/comidas/${foodOrDrinkId}`);
+      history.push(`comidas${foodOrDrinkId}`);
     } else if (keyMealsOrDrinks === 'drinks' && responseApi.length === 0) {
-      history.push(`/bebidas/${foodOrDrinkId}`);
+      history.push(`bebidas${foodOrDrinkId}`);
     }
+  };
+
+  const mapId = () => {
+    const idFood = responseApi.map(({ idMeal }) => idMeal);
+    const idDrinks = responseApi.map(({ idDrink }) => idDrink);
+    if (path === '/comidas') setFoodOrDrinkId(idFood);
+    if (path === '/bebidas') setFoodOrDrinkId(idDrinks);
   };
 
   useEffect(() => {
     keyMealsOrDrinkFn();
+    mapId();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -65,7 +73,6 @@ function SearchBar() {
       <div className="father_food" key={ index }>
         <h1>{value[title]}</h1>
         <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
       </div>
     ))
   );
@@ -135,8 +142,7 @@ function SearchBar() {
         onClick={ () => {
           handleSubmit();
           keyOneFilterFn();
-          console.log(foodOrDrinkId);
-          console.log(responseApi);
+          console.log(responseApi.length);
         } }
       >
         Buscar Comidas
