@@ -19,26 +19,48 @@ export default function RecipesProvider({ children }) {
   const [foodsRecipes, setFoodsRecipes] = useState([]);
   const [drinksRecipes, setDrinksRecipes] = useState([]);
 
-  const [inProgressMealsRecipes, setInProgressMealsRecipes] = useState({});
-  const [inProgressCocktailsRecipes, setInProgressCocktailsRecipes] = useState({});
-
   const [inProgressRecipes, setInProgressRecipes] = useState({
-    cocktails: inProgressCocktailsRecipes,
-    meals: inProgressMealsRecipes,
+    cocktails: {},
+    meals: {},
   });
 
-  const addNewInProgressMealsRecipes = (recipe) => {
-    setInProgressMealsRecipes({
-      ...inProgressMealsRecipes,
-      ...recipe,
+  const addNewInProgressMealsRecipes = (id, ingredient) => {
+    setInProgressRecipes((prevState) => {
+      const mealsPrevState = prevState.meals[id] ? prevState.meals[id] : [];
+
+      return {
+        ...prevState,
+        meals: {
+          ...prevState.meals,
+          [id]: [
+            ...mealsPrevState,
+            ingredient,
+          ],
+        },
+      };
     });
   };
 
-  const addNewInProgressCocktailsRecipes = (recipe) => {
-    setInProgressCocktailsRecipes({
-      ...inProgressCocktailsRecipes,
-      ...recipe,
+  const addNewInProgressCocktailsRecipes = (id, ingredient) => {
+    setInProgressRecipes((prevState) => {
+      const cocktailsPrevState = prevState.cocktails[id] ? prevState.cocktails[id] : [];
+
+      return {
+        ...prevState,
+        cocktails: {
+          ...prevState.cocktails,
+          [id]: [
+            ...cocktailsPrevState,
+            ingredient,
+          ],
+        },
+      };
     });
+  };
+
+  const getInProgressRecipeStorage = () => {
+    const storage = localStorage.getItem('inProgressRecipes');
+    if (storage) setInProgressRecipes(JSON.parse(storage));
   };
 
   const context = {
@@ -62,13 +84,6 @@ export default function RecipesProvider({ children }) {
   };
 
   useEffect(() => {
-    setInProgressRecipes({
-      cocktails: inProgressCocktailsRecipes,
-      meals: inProgressMealsRecipes,
-    });
-  }, [inProgressCocktailsRecipes, inProgressMealsRecipes]);
-
-  useEffect(() => {
     const setFoodsAndDrinks = async () => {
       setFoodsCategories(await fetchCategories(FOODS_CATEGORIES_ENDPOINT));
       setDrinksCategories(await fetchCategories(DRINKS_CATEGORIES_ENDPOINT));
@@ -78,7 +93,12 @@ export default function RecipesProvider({ children }) {
     };
 
     setFoodsAndDrinks();
+    getInProgressRecipeStorage();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
+  }, [inProgressRecipes]);
 
   return (
     <RecipesContext.Provider value={ { ...context } }>

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import RecipesContext from '../contexts/RecipesContext';
-import API from '../services/theMealAPI';
+import { fetchRecipes } from '../services/theMealAPI';
 
 import {
   DRINKS_RECIPES_ENDPOINT,
@@ -8,8 +8,6 @@ import {
   FILTER_FOODS_BY_CATEGORY_ENDPOINT,
   FOODS_RECIPES_ENDPOINT,
 } from '../helpers/endpoints';
-
-const { fetchRecipes } = API;
 
 export default function useRecipesFilter() {
   const {

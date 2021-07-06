@@ -8,6 +8,7 @@ const IngredientsList = ({
   ingredients,
   ingredientsMeasures,
   handleIngredientChecked,
+  usedIngredients = [],
 }) => {
   const { path } = useRouteMatch();
   const [isRecipeInProgress, setIsRecipeInProgress] = useState(false);
@@ -20,32 +21,45 @@ const IngredientsList = ({
     <>
       <h2>Ingredients</h2>
       <ul id="ingredients-list">
-        { ingredients.length > 0 && ingredients.map((ingredient, index) => (
-          <li
-            key={ index }
-            data-testid={ `${index}-ingredient-step` }
-          >
-            <label htmlFor={ ingredient }>
-              {isRecipeInProgress
+        { ingredients.length > 0 && ingredients.map((ingredient, index) => {
+          const hasUsed = usedIngredients.includes(ingredient) && isRecipeInProgress;
+          return (
+            <li
+              key={ index }
+              data-testid={ `${index}-ingredient-step` }
+            >
+              <label
+                htmlFor={ ingredient }
+                className={ hasUsed && 'checked' }
+              >
+                {isRecipeInProgress
               && <input
                 type="checkbox"
                 id={ ingredient }
+                checked={ hasUsed }
                 onClick={ handleIngredientChecked }
               />}
-              <span>{ingredient}</span>
-              <span>{ingredientsMeasures[index]}</span>
-            </label>
-          </li>
-        ))}
+                <span>{ingredient}</span>
+                <span>{ingredientsMeasures[index]}</span>
+              </label>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
 };
 
 IngredientsList.propTypes = {
-  ingredients: arrayOf(string),
-  ingredientsMeasures: arrayOf(string),
+  ingredients: arrayOf(string).isRequired,
+  ingredientsMeasures: arrayOf(string).isRequired,
+  usedIngredients: arrayOf(string),
   handleIngredientChecked: func,
-}.isRequired;
+};
+
+IngredientsList.defaultProps = {
+  usedIngredients: [],
+  handleIngredientChecked: () => {},
+};
 
 export default IngredientsList;
