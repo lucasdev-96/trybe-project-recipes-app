@@ -14,7 +14,8 @@ describe('Testes da pagina de Login', () => {
     expect(button).toBeInTheDocument();
   });
 
-  test('Verifica  se apos os valores serem pass ados ao os inputs habilita o botao e vai para a pagina de Comidas', () => {
+  test('Verifica  se apos os valores serem '
+  + 'pass ados ao os inputs habilita o botao e vai para a pagina de Comidas', () => {
     const { getByPlaceholderText, getByText, history } = renderWithRouter(<App />);
     const inputEmail = getByPlaceholderText(/email/i);
     const inputPassword = getByPlaceholderText(/password/i);

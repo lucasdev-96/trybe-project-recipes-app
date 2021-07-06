@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import BottomMenu from '../components/BottomMenu';
 import Categories from '../components/Categories';
