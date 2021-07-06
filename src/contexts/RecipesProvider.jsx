@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { element } from 'prop-types';
 
 import RecipesContext from './RecipesContext';
-import { fetchCategories, fetchRecipes } from '../services/theMealAPI';
+import API from '../services/theMealAPI';
 
 import {
   DRINKS_CATEGORIES_ENDPOINT,
@@ -10,6 +10,8 @@ import {
   FOODS_CATEGORIES_ENDPOINT,
   FOODS_RECIPES_ENDPOINT,
 } from '../helpers/endpoints';
+
+const { fetchCategories, fetchRecipes } = API;
 
 export default function RecipesProvider({ children }) {
   const [foodsCategories, setFoodsCategories] = useState([]);

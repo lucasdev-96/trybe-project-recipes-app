@@ -3,21 +3,18 @@ import { screen } from '@testing-library/dom';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 import recipeDetailsData from './mocks/recipeDetailsData';
+import API from '../services/theMealAPI';
 
 describe('Tela de receita em progresso', () => {
-  test('O header possui o titulo, imagem, categoria da receita', async () => {
+  test('O header possui o titulo, imagem, categoria da receita', () => {
     jest.spyOn(global, 'fetch');
     global.fetch.mockResolvedValue({
       json: jest.fn().mockResolvedValue(recipeDetailsData),
     });
-
+    //
     const { history } = renderWithRouter(<App />);
-    history.push('comidas/52977/in-progress');
+    history.push('/comidas/52977/in-progress');
 
-    try {
-      await screen.findByText('Corba');
-    } catch (error) {
-      console.log(error);
-    }
+    expect(screen.getByText('Corba')).toBeInTheDocument();
   });
 });
