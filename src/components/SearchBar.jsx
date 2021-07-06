@@ -1,34 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useRouteMatch, Redirect } from 'react-router-dom';
-import { fetchUrlRadioButtons } from '../services/theMealAPI';
+import { fetchRecipes } from '../services/theMealAPI';
 import '../styles/header.css';
 import { foodUrls, drinkUrls } from '../helpers/endpoints';
+import RecipesContext from '../contexts/RecipesContext';
+
+const validateFirstLetter = (input, radioButtonName) => {
+  if (input.length > 1 && radioButtonName === 'firstLetter') {
+    // eslint-disable-next-line no-alert
+    alert('Sua busca deve conter somente 1 (um) caracter');
+  }
+};
+
+const keyMealsOrDrinkFn = (setState, path) => {
+  if (path === '/comidas') {
+    setState('Meal');
+  } else if (path === '/bebidas') {
+    setState('Drink');
+  }
+};
 
 function SearchBar() {
   const [inputValue, setInputValue] = useState({ resultInput: '' });
-  const [responseApi, setResponseApi] = useState([]);
   const [radioButtonName, setRadioButtonName] = useState('name');
   const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
   const { path } = useRouteMatch();
-  const { resultInput } = inputValue;
+  const { resultInput: input } = inputValue;
+  const { setFoodsRecipes,
+    setDrinksRecipes,
+    recipes } = useContext(RecipesContext);
 
-  const keyMealsOrDrinkFn = () => {
-    if (path === '/comidas') {
-      setkeyMealsOrDrinks('Meal');
-    } else if (path === '/bebidas') {
-      setkeyMealsOrDrinks('Drink');
-    }
-  };
+  const { foods, drinks } = recipes;
 
   useEffect(() => {
     keyMealsOrDrinkFn();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleClickResponseApi = async (endpoint) => {
-    const response = await fetchUrlRadioButtons(endpoint);
-    if (response === null) setResponseApi([]);
-    else setResponseApi(response);
+  const handleClickResponseApi = async () => {
+    validateFirstLetter(input, radioButtonName);
+    keyMealsOrDrinkFn(setkeyMealsOrDrinks, path);
+    if (path === '/comidas') {
+      const resultFood = await fetchRecipes(foodUrls(input)[radioButtonName]);
+      if (resultFood) {
+        setFoodsRecipes(resultFood);
+        console.log(resultFood);
+      }
+    }
+
+    if (path === '/bebidas') {
+      const resultDrinks = await fetchRecipes(drinkUrls(input)[radioButtonName]);
+      if (resultDrinks) {
+        setDrinksRecipes(resultDrinks);
+      }
+    }
   };
 
   const handleChange = ({ target: { value: str } }) => {
@@ -38,32 +63,10 @@ function SearchBar() {
     });
   };
 
-  const handleSubmit = () => {
-    if (resultInput.length > 1 && radioButtonName === 'firstLetter') {
-      // eslint-disable-next-line no-alert
-      alert('Sua busca deve conter somente 1 (um) caracter');
-    }
-    if (path === '/comidas') {
-      handleClickResponseApi(foodUrls(resultInput)[radioButtonName]);
-    } if (path === '/bebidas') {
-      handleClickResponseApi(drinkUrls(resultInput)[radioButtonName]);
-    }
-  };
-
-  const renderMapCardsDrinkOrFood = () => (
-    responseApi.map((value, index) => (
-      <div className="father_food" key={ index }>
-        <h1>{value[`str${keyMealsOrDrinks}`]}</h1>
-        <img
-          src={ value[`str${keyMealsOrDrinks}Thumb`] }
-          alt={ path.split('/')[1] }
-        />
-      </div>
-    ))
-  );
-
-  if (responseApi.length === 1) {
-    return <Redirect to={ `${path}/${responseApi[0][`id${keyMealsOrDrinks}`]}` } />;
+  if (foods.length === 1) {
+    return <Redirect to={ `${path}/${foods[0][`id${keyMealsOrDrinks}`]}` } />;
+  } if (drinks.length === 1) {
+    return <Redirect to={ `${path}/${drinks[0][`id${keyMealsOrDrinks}`]}` } />;
   }
 
   return (
@@ -109,7 +112,7 @@ function SearchBar() {
       <label htmlFor="search-input">
         <input
           id="search-input"
-          value={ resultInput }
+          value={ input }
           name="resultInput"
           onChange={ handleChange }
           type="text"
@@ -120,13 +123,10 @@ function SearchBar() {
       <button
         type="submit"
         data-testid="exec-search-btn"
-        onClick={ () => {
-          handleSubmit();
-        } }
+        onClick={ handleClickResponseApi }
       >
         Buscar Comidas
       </button>
-      {renderMapCardsDrinkOrFood()}
     </div>
   );
 }
