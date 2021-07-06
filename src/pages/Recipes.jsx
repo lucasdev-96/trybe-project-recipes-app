@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import BottomMenu from '../components/BottomMenu';
 import Categories from '../components/Categories';
@@ -9,8 +9,8 @@ import useRecipesFilter from '../hooks/useRecipesFilter';
 
 export default function Recipes() {
   const { path } = useRouteMatch();
-  const [isRecipesFoods, setIsRecipesFoods] = useState(true);
-  const [isRecipesDrinks, setIsRecipesDrinks] = useState(false);
+  const isRecipesFoods = path.includes('comidas');
+  const isRecipesDrinks = path.includes('bebidas');
   const [selectedCategory, setSelectedCategory] = useState('');
   const { categories, recipes, setfoodOrDrinksPathName } = useContext(RecipesContext);
 
@@ -21,13 +21,6 @@ export default function Recipes() {
     if (isRecipesDrinks) filterDrinksByCategory(category, selectedCategory);
     if (isRecipesFoods) filterFoodsByCategory(category, selectedCategory);
   };
-
-  useEffect(() => {
-    setIsRecipesFoods(path === '/comidas');
-    setIsRecipesDrinks(path === '/bebidas');
-    setfoodOrDrinksPathName(path);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [path]);
 
   return (
     <div>

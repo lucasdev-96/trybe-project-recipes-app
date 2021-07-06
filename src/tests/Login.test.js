@@ -13,6 +13,7 @@ describe('Testes da pagina de Login', () => {
     expect(inputPassword).toBeInTheDocument();
     expect(button).toBeInTheDocument();
   });
+
   test('Verifica  se apos os valores serem passados ao os inputs habilita '
   + 'o botao e vai para a pagina de Comidas', () => {
     const { getByPlaceholderText, getByText } = renderWithRouter(<App />);
