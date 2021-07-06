@@ -1,14 +1,19 @@
 .footer {
-  align-items: center;
-  background-color: red;
-  bottom: 0;
-  padding-top: 3em;
-  position: fixed;
   width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c7c7c7;
+  bottom: 0;
+  position: fixed;
 }
 
 .icons-container {
+  width: 90vw;
+  margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
 }

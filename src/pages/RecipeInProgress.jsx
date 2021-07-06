@@ -1,35 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useRouteMatch } from 'react-router-dom';
-import BottomMenu from '../components/BottomMenu';
+import { Link, useParams, useRouteMatch } from 'react-router-dom';
 import RecipeDetailsHeader from '../components/RecipeDetailsHeader';
 import { fetchRecipeDetails } from '../services/theMealAPI';
 import { DRINKS_RECIPE_DETAILS, FOODS_RECIPE_DETAILS } from '../helpers/endpoints';
 import IngredientsList from '../components/IngredientsList';
 import RecipesContext from '../contexts/RecipesContext';
 import useLocalStorage from '../hooks/useLocalStorage';
+import useIngredients from '../hooks/useIngredients';
 
 const RecipeInProgress = () => {
   const { path } = useRouteMatch();
   const { id } = useParams();
-  const [recipeType, setRecipeType] = useState('');
-  const [recipe, setRecipe] = useState({});
   const { inProgressRecipes } = useContext(RecipesContext);
   const { updateFavoriteRecipes } = useLocalStorage();
-
   const {
     addNewInProgressMealsRecipes,
     addNewInProgressCocktailsRecipes,
   } = useContext(RecipesContext);
 
-  const ingredients = Object.entries(recipe)
-    .filter((el) => el[0].includes('strIngredient') && el[1])
-    .reduce((acc, el) => [...acc, el[1]], []);
-
-  const usedIngredients = inProgressRecipes.cocktails[id] || inProgressRecipes.meals[id];
-
-  const ingredientsMeasures = Object.entries(recipe)
-    .filter((el) => el[0].includes('strMeasure') && el[1] !== '')
-    .reduce((acc, el) => [...acc, el[1]], []);
+  const [recipeType, setRecipeType] = useState('');
+  const [recipe, setRecipe] = useState({});
+  const { ingredients, ingredientsMeasures } = useIngredients(recipe);
+  const [usedIngredients = [], setUsedIngredients] = useState([]);
+  const [isRecipeCompleted, setIsRecipeCompleted] = useState(false);
 
   const handleIngredientChecked = ({ target }) => {
     if (target.checked) {
@@ -53,6 +46,15 @@ const RecipeInProgress = () => {
   const handleFavoriteClick = () => {
     updateFavoriteRecipes(recipe, recipeType);
   };
+
+  useEffect(() => {
+    setUsedIngredients(inProgressRecipes.cocktails[id] || inProgressRecipes.meals[id]);
+    console.log('mudei');
+  }, [inProgressRecipes, id]);
+
+  useEffect(() => {
+    setIsRecipeCompleted(ingredients.length === usedIngredients.length);
+  }, [usedIngredients, ingredients]);
 
   // Busca a receita e seta o tipo dela
   useEffect(() => {
@@ -96,15 +98,19 @@ const RecipeInProgress = () => {
 
         <p data-testid="instructions">{ recipe.strInstructions }</p>
 
-        <button
-          type="button"
-          data-testid="finish-recipe-btn"
+        <Link
+          to="/receitas-feitas"
         >
-          Finalizar receita
-        </button>
+          <button
+            type="button"
+            data-testid="finish-recipe-btn"
+            disabled={ !isRecipeCompleted }
+          >
+            Finalizar receita
+          </button>
+        </Link>
       </main>
 
-      <BottomMenu />
     </>
   );
 };
