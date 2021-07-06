@@ -30,8 +30,6 @@ export default function RecipesProvider({ children }) {
     },
     setFoodsRecipes,
     setDrinksRecipes,
-    foodsRecipes,
-    drinksRecipes,
     foodOrDrinksPathName,
     setfoodOrDrinksPathName,
   };
