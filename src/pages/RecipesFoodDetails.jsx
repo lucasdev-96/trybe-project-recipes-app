@@ -4,6 +4,7 @@ import RenderMapDetails from '../components/renderMapDetails';
 import { detailsUrl } from '../helpers/endpoints';
 import RecipesContext from '../contexts/RecipesContext';
 import { fetchRecipesFoodDetails } from '../services/theMealAPI';
+import BottomMenu from '../components/BottomMenu';
 
 function RecipesFoodDetails() {
   const { id } = useParams();
@@ -24,7 +25,10 @@ function RecipesFoodDetails() {
   }, []);
 
   return (
-    <RenderMapDetails path={ path } />
+    <>
+      <RenderMapDetails path={ path } />
+      <BottomMenu />
+    </>
   );
 }
 
