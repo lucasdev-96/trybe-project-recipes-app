@@ -3,7 +3,6 @@ import { screen } from '@testing-library/dom';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 import recipeDetailsData from './mocks/recipeDetailsData';
-import API from '../services/theMealAPI';
 
 describe('Tela de receita em progresso', () => {
   test('O header possui o titulo, imagem, categoria da receita', () => {
