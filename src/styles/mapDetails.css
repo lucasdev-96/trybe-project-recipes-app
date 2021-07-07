@@ -1,0 +1,62 @@
+.FatherMap {
+  display: flex;
+  flex-direction: column;
+}
+
+.fatherImg {
+  display: flex;
+  height: 350px;
+  justify-content: center;
+  width: 100%;
+}
+
+.img {
+  height: 350px;
+  width: 500px;
+}
+
+.father {
+  display: flex;
+  flex-direction: column;
+}
+
+.infos {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat , sans-serif;
+}
+
+
+.infos > p {
+  color: silver;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.infos > .buttons > h1 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 33px;
+  width: 170px;
+}
+
+.infos > h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.effectBtn {
+  background-color: white;
+  border: none;
+}
+
+.effectBtn:focus {
+  outline: none;
+}
