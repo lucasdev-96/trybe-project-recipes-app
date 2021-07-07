@@ -12,8 +12,10 @@ export const fetchRecipes = async (endpoint) => {
   const recipes = await response.json();
   const recipesAmount = 11;
 
-  return Object.values(recipes)[0]
-    .filter((recipe, index) => index <= recipesAmount);
+  const result = Object.values(recipes)[0];
+  if (result != null && result.length > 0) {
+    return result.filter((recipe, index) => index <= recipesAmount);
+  }alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
 };
 
 export const fetchRecipeDetails = async (endpoint) => {
@@ -21,11 +23,4 @@ export const fetchRecipeDetails = async (endpoint) => {
   const recipeDetails = await response.json();
 
   return Object.values(recipeDetails)[0][0];
-};
-
-export const fetchUrlRadioButtons = async (endpoint) => {
-  const response = await fetch(endpoint);
-  const recipes = await response.json();
-
-  return recipes;
 };

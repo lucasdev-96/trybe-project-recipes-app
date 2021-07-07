@@ -1,44 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { useRouteMatch, useHistory } from 'react-router-dom';
-import { fetchUrlRadioButtons } from '../services/theMealAPI';
+import React, { useState, useEffect, useContext } from 'react';
+import { useRouteMatch, Redirect } from 'react-router-dom';
+import { fetchRecipes } from '../services/theMealAPI';
 import '../styles/header.css';
 import { foodUrls, drinkUrls } from '../helpers/endpoints';
+import RecipesContext from '../contexts/RecipesContext';
+
+const validateFirstLetter = (input, radioButtonName) => {
+  if (input.length > 1 && radioButtonName === 'firstLetter') {
+    // eslint-disable-next-line no-alert
+    alert('Sua busca deve conter somente 1 (um) caracter');
+  }
+};
+
+const keyMealsOrDrinkFn = (setState, path) => {
+  if (path === '/comidas') {
+    setState('Meal');
+  } else if (path === '/bebidas') {
+    setState('Drink');
+  }
+};
 
 function SearchBar() {
   const [inputValue, setInputValue] = useState({ resultInput: '' });
-  const [responseApi, setResponseApi] = useState([]);
   const [radioButtonName, setRadioButtonName] = useState('name');
   const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
-  const [foodOrDrinkId, setFoodOrDrinkId] = useState('');
   const { path } = useRouteMatch();
-  const { resultInput } = inputValue;
-  const history = useHistory();
+  const { resultInput: input } = inputValue;
+  const { setFoodsRecipes,
+    setDrinksRecipes,
+    recipes } = useContext(RecipesContext);
 
-  const keyMealsOrDrinkFn = () => {
-    if (path === '/comidas') {
-      setkeyMealsOrDrinks('meals');
-    } else if (path === '/bebidas') {
-      setkeyMealsOrDrinks('drinks');
-    }
-  };
-
-  const keyOneFilterFn = () => {
-    if (keyMealsOrDrinks === 'meals' && responseApi.length === 0) {
-      history.push(`/comidas/${foodOrDrinkId}`);
-    } else if (keyMealsOrDrinks === 'drinks' && responseApi.length === 0) {
-      history.push(`/bebidas/${foodOrDrinkId}`);
-    }
-  };
+  const { foods, drinks } = recipes;
 
   useEffect(() => {
     keyMealsOrDrinkFn();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleClickResponseApi = async (endpoint) => {
-    const response = await fetchUrlRadioButtons(endpoint);
-    if (response[keyMealsOrDrinks] === null) setResponseApi([]);
-    else setResponseApi(response[keyMealsOrDrinks]);
+  const handleClickResponseApi = async () => {
+    validateFirstLetter(input, radioButtonName);
+    keyMealsOrDrinkFn(setkeyMealsOrDrinks, path);
+    if (path === '/comidas') {
+      const resultFood = await fetchRecipes(foodUrls(input)[radioButtonName]);
+      if (resultFood) {
+        setFoodsRecipes(resultFood);
+        console.log(resultFood);
+      }
+    }
+
+    if (path === '/bebidas') {
+      const resultDrinks = await fetchRecipes(drinkUrls(input)[radioButtonName]);
+      if (resultDrinks) {
+        setDrinksRecipes(resultDrinks);
+      }
+    }
   };
 
   const handleChange = ({ target: { value: str } }) => {
@@ -48,35 +63,11 @@ function SearchBar() {
     });
   };
 
-  const handleSubmit = () => {
-    if (resultInput.length > 1 && radioButtonName === 'firstLetter') {
-      // eslint-disable-next-line no-alert
-      alert('Sua busca deve conter somente 1 (um) caracter');
-    }
-    if (path === '/comidas') {
-      handleClickResponseApi(foodUrls(resultInput)[radioButtonName]);
-    } if (path === '/bebidas') {
-      handleClickResponseApi(drinkUrls(resultInput)[radioButtonName]);
-    }
-  };
-
-  const renderMapCardsDrinkOrFood = (title, img, altName) => (
-    responseApi.map((value, index) => (
-      <div className="father_food" key={ index }>
-        <h1>{value[title]}</h1>
-        <img src={ value[img] } alt={ value[altName] } />
-        { () => setFoodOrDrinkId(value.idMeal) }
-      </div>
-    ))
-  );
-
-  const validateMap = () => {
-    if (keyMealsOrDrinks === 'meals') {
-      return renderMapCardsDrinkOrFood('strMeal', 'strMealThumb', 'comidas');
-    } if (keyMealsOrDrinks === 'drinks') {
-      return renderMapCardsDrinkOrFood('strDrink', 'strDrinkThumb', 'bebidas');
-    }
-  };
+  if (foods.length === 1) {
+    return <Redirect to={ `${path}/${foods[0][`id${keyMealsOrDrinks}`]}` } />;
+  } if (drinks.length === 1) {
+    return <Redirect to={ `${path}/${drinks[0][`id${keyMealsOrDrinks}`]}` } />;
+  }
 
   return (
     <div>
@@ -121,7 +112,7 @@ function SearchBar() {
       <label htmlFor="search-input">
         <input
           id="search-input"
-          value={ resultInput }
+          value={ input }
           name="resultInput"
           onChange={ handleChange }
           type="text"
@@ -132,16 +123,10 @@ function SearchBar() {
       <button
         type="submit"
         data-testid="exec-search-btn"
-        onClick={ () => {
-          handleSubmit();
-          keyOneFilterFn();
-          console.log(foodOrDrinkId);
-          console.log(responseApi);
-        } }
+        onClick={ handleClickResponseApi }
       >
         Buscar Comidas
       </button>
-      {validateMap()}
     </div>
   );
 }
