@@ -23,3 +23,10 @@ export const fetchRecipesFoodDetails = async (endpoint) => {
   const recipes = await response.json();
   return Object.values(recipes)[0];
 };
+
+export const fetchRecipeDetails = async (endpoint) => {
+  const response = await fetch(endpoint);
+  const recipeDetails = await response.json();
+
+  return Object.values(recipeDetails)[0][0];
+};
