@@ -10,10 +10,6 @@
   width: 100%;
 }
 
-.img {
-  height: 350px;
-  width: 500px;
-}
 
 .father {
   display: flex;
@@ -59,4 +55,27 @@
 
 .effectBtn:focus {
   outline: none;
+}
+
+.list {
+  background-color: #dee0e7;
+}
+
+
+.intructionsText {
+  font-family: Montserrat , sans-serif;
+  padding: 20px;
+}
+
+.h2 {
+  font-size: 20px;
+  font-style: bold;
+  line-height: 27px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.container-lg {
+  padding: 10px;
 }
