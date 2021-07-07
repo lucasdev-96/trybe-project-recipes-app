@@ -1,0 +1,22 @@
+.recipe-details-header {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.recipe-details-header > img {
+  max-height: 400px;
+  width: 100%;
+}
+
+.recipe-details-header .content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 90vw;
+}
+
+.recipe-details-header .content button {
+  background: transparent;
+  border: none;
+}

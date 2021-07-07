@@ -17,3 +17,10 @@ export const fetchRecipes = async (endpoint) => {
     return result.filter((recipe, index) => index <= recipesAmount);
   }alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
 };
+
+export const fetchRecipeDetails = async (endpoint) => {
+  const response = await fetch(endpoint);
+  const recipeDetails = await response.json();
+
+  return Object.values(recipeDetails)[0][0];
+};

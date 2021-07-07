@@ -12,7 +12,7 @@ export default function Recipes() {
   const isRecipesFoods = path.includes('comidas');
   const isRecipesDrinks = path.includes('bebidas');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const { categories, recipes, setfoodOrDrinksPathName } = useContext(RecipesContext);
+  const { categories, recipes } = useContext(RecipesContext);
 
   const { filterDrinksByCategory, filterFoodsByCategory } = useRecipesFilter();
 
