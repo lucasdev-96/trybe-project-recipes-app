@@ -30,6 +30,29 @@ function RenderMapDetails({ path }) {
       setKeyName('drinks');
     }
   }, [foods, drinks]);
+
+  const classActive = (index, key, keyNameImg) => (
+    <div className="carousel-item active">
+      <img
+        data-testid={ `${index}-recomendation-card` }
+        alt="slide"
+        className="d-block w-100"
+        src={ key[`str${keyNameImg}Thumb`] }
+      />
+    </div>
+  );
+
+  const noClassActive = (index, key, keyNameImg) => (
+    <div className="carousel-item ">
+      <img
+        className="d-block w-100"
+        data-testid={ `${index}-recomendation-card` }
+        src={ key[`str${keyNameImg}Thumb`] }
+        alt="slide"
+      />
+    </div>
+  );
+
   return (
     <div className="FatherMap">
       {api.map((valueApiKeys, index) => {
@@ -103,22 +126,8 @@ function RenderMapDetails({ path }) {
                   <div className="carousel-inner">
                     {
                       index3 === 0
-                        ? <div className="carousel-item active">
-                          <img
-                            data-testid={ `${index3}-recomendation-card` }
-                            alt="slide"
-                            className="d-block w-100"
-                            src={ key[`str${keyMap}Thumb`] }
-                          />
-                          </div>
-                        : <div className="carousel-item ">
-                          <img
-                            className="d-block w-100"
-                            data-testid={ `${index3}-recomendation-card` }
-                            src={ key[`str${keyMap}Thumb`] }
-                            alt="slide"
-                          />
-                        </div>
+                        ? classActive(index3, key, keyMap)
+                        : noClassActive(index3, key, keyMap)
                     }
                   </div>
                 </div>
