@@ -10,7 +10,7 @@ import {
   foodsCategories,
 } from './tests/mocks/recipesPageData';
 
-const renderWithRouterAndProvider = (component) => {
+const renderWithRouterAndProvider = (component, state) => {
   const history = createMemoryHistory();
 
   const globalState = {
@@ -27,7 +27,7 @@ const renderWithRouterAndProvider = (component) => {
   return ({
     ...render(
       <Router history={ history }>
-        <RecipesContext.Provider value={ { ...globalState } }>
+        <RecipesContext.Provider value={ state || globalState }>
           {component}
         </RecipesContext.Provider>
       </Router>,

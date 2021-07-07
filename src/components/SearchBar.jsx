@@ -23,7 +23,7 @@ const keyMealsOrDrinkFn = (setState, path) => {
 function SearchBar() {
   const [inputValue, setInputValue] = useState({ resultInput: '' });
   const [radioButtonName, setRadioButtonName] = useState('name');
-  const [keyMealsOrDrinks, setkeyMealsOrDrinks] = useState('');
+  const [keyMealsOrDrinks, setKeyMealsOrDrinks] = useState('');
   const { path } = useRouteMatch();
   const { resultInput: input } = inputValue;
   const { setFoodsRecipes,
@@ -39,7 +39,7 @@ function SearchBar() {
 
   const handleClickResponseApi = async () => {
     validateFirstLetter(input, radioButtonName);
-    keyMealsOrDrinkFn(setkeyMealsOrDrinks, path);
+    keyMealsOrDrinkFn(setKeyMealsOrDrinks, path);
     if (path === '/comidas') {
       const resultFood = await fetchRecipes(foodUrls(input)[radioButtonName]);
       if (resultFood) {

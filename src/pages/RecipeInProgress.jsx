@@ -49,12 +49,15 @@ const RecipeInProgress = () => {
 
   useEffect(() => {
     setUsedIngredients(inProgressRecipes.cocktails[id] || inProgressRecipes.meals[id]);
-    console.log('mudei');
   }, [inProgressRecipes, id]);
 
   useEffect(() => {
     setIsRecipeCompleted(ingredients.length === usedIngredients.length);
   }, [usedIngredients, ingredients]);
+
+  useEffect(() => {
+    console.log(recipe);
+  }, [recipe]);
 
   // Busca a receita e seta o tipo dela
   useEffect(() => {
