@@ -35,7 +35,7 @@ const RecipeDetailsHeader = ({
   };
 
   return (
-    <header id="recipe-details-header">
+    <header className="recipe-details-header">
       <img
         src={ recipeThumb }
         alt={ recipeTitle }
