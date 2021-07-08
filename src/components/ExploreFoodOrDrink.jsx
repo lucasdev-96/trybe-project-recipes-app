@@ -13,10 +13,11 @@ function ExploreFoodOrDrink() {
   }, []);
   const arrayChange = Object.entries(recipes.foods);
   // console.log(arrayChange);
-  const filterByIngredients = arrayChange.filter((element) => element[1].includes('strIngredient'));
+  const filterByIngredients = arrayChange
+    .filter((element) => element[1].includes('strIngredient'));
   console.log(filterByIngredients);
   return (
-    <h1> ainnn </h1>
+    <h1>{ keyName }</h1>
   );
 }
 
