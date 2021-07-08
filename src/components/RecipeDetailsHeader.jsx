@@ -42,11 +42,8 @@ const RecipeDetailsHeader = ({
         data-testid="recipe-photo"
       />
       <div className="content">
-        <div>
+        <div className="recipeInfos">
           <h1 data-testid="recipe-title">{recipeTitle}</h1>
-          <span data-testid="recipe-category">{recipeCategory}</span>
-        </div>
-        <div>
           <button
             type="button"
             data-testid="share-btn"
@@ -66,7 +63,9 @@ const RecipeDetailsHeader = ({
               alt="Favoritar"
             />
           </button>
+          <span data-testid="recipe-category">{recipeCategory}</span>
         </div>
+
       </div>
     </header>
   );

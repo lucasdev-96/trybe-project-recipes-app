@@ -77,6 +77,7 @@ function RenderMapDetails({ path }) {
           .filter((key) => key[0].includes('strMeasure') && key[1]);
         return (
           <section className="father" key={ index }>
+
             <div className="fatherImg">
               <img
                 className="img-fluid"
