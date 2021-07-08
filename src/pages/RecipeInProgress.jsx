@@ -55,10 +55,6 @@ const RecipeInProgress = () => {
     setIsRecipeCompleted(ingredients.length === usedIngredients.length);
   }, [usedIngredients, ingredients]);
 
-  useEffect(() => {
-    console.log(recipe);
-  }, [recipe]);
-
   // Busca a receita e seta o tipo dela
   useEffect(() => {
     const recipeUrl = path.split('/')[1];

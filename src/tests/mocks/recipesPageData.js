@@ -1,4 +1,4 @@
-export const drinksRecipes = [
+export const drinksRecipes = { drinks: [
   {
     idDrink: 1,
     strDrink: 'GG',
@@ -59,9 +59,9 @@ export const drinksRecipes = [
     strDrink: 'B-52',
     strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/5a3vg61504372070.jpg',
   },
-];
+] };
 
-export const foodsRecipes = [
+export const foodsRecipes = { meals: [
   {
     idMeal: 1,
     strMeal: 'Corba',
@@ -123,27 +123,30 @@ export const foodsRecipes = [
     strMeal: 'Pancakes',
     strMealThumb: 'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
   },
-];
+] };
 
-export const foodsCategories = [
-  {
-    strCategory: 'Beef',
-  },
-  {
-    strCategory: 'Breakfast',
-  },
-  {
-    strCategory: 'Chicken',
-  },
-  {
-    strCategory: 'Dessert',
-  },
-  {
-    strCategory: 'Goat',
-  },
-];
+export const foodsCategories = {
+  meals: [
+    {
+      strCategory: 'Beef',
+    },
+    {
+      strCategory: 'Breakfast',
+    },
+    {
+      strCategory: 'Chicken',
+    },
+    {
+      strCategory: 'Dessert',
+    },
+    {
+      strCategory: 'Goat',
+    },
 
-export const drinksCategories = [
+  ],
+};
+
+export const drinksCategories = { drinks: [
   {
     strCategory: 'Ordinary Drink',
   },
@@ -159,4 +162,4 @@ export const drinksCategories = [
   {
     strCategory: 'Cocoa',
   },
-];
+] };
