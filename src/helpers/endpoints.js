@@ -21,3 +21,8 @@ export const drinkUrls = (resultInput) => ({
   firstLetter: `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${resultInput}`,
 }
 );
+
+export const detailsUrl = (id) => ({
+  food: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
+  drink: `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
+});

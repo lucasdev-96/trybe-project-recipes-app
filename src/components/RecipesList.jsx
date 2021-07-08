@@ -12,7 +12,6 @@ export default function RecipesList({ recipes }) {
         const recipeID = recipe.idMeal || recipe.idDrink;
         const recipeName = recipe.strMeal || recipe.strDrink;
         const recipeImg = recipe.strMealThumb || recipe.strDrinkThumb;
-
         return (
           <Link
             key={ recipeID }

@@ -11,7 +11,7 @@ import useIngredients from '../hooks/useIngredients';
 const RecipeInProgress = () => {
   const { path } = useRouteMatch();
   const { id } = useParams();
-  const { inProgressRecipes } = useContext(RecipesContext);
+  const { inProgressRecipes, setChangeBtn } = useContext(RecipesContext);
   const { updateFavoriteRecipes } = useLocalStorage();
   const {
     addNewInProgressMealsRecipes,
@@ -49,11 +49,11 @@ const RecipeInProgress = () => {
 
   useEffect(() => {
     setUsedIngredients(inProgressRecipes.cocktails[id] || inProgressRecipes.meals[id]);
-    console.log('mudei');
   }, [inProgressRecipes, id]);
 
   useEffect(() => {
     setIsRecipeCompleted(ingredients.length === usedIngredients.length);
+    setChangeBtn(isRecipeCompleted);
   }, [usedIngredients, ingredients]);
 
   // Busca a receita e seta o tipo dela
