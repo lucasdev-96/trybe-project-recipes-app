@@ -28,7 +28,8 @@ function SearchBar() {
   const { resultInput: input } = inputValue;
   const { setFoodsRecipes,
     setDrinksRecipes,
-    recipes } = useContext(RecipesContext);
+    recipes,
+  } = useContext(RecipesContext);
 
   const { foods, drinks } = recipes;
 
@@ -44,7 +45,6 @@ function SearchBar() {
       const resultFood = await fetchRecipes(foodUrls(input)[radioButtonName]);
       if (resultFood) {
         setFoodsRecipes(resultFood);
-        console.log(resultFood);
       }
     }
 
