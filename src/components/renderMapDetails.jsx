@@ -9,8 +9,8 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 import useLocalStorage from '../hooks/useLocalStorage';
 // para fazer o carrosel peguei as informaçoes deste site https://reactjsexample.com/a-flexible-and-responsive-carousel-component-for-react/
 function RenderMapDetails({ path }) {
-  const { detailRecipes, recipes, changeBtn,
-    favoriteRecipes } = useContext(RecipesContext);
+  const { detailRecipes, recipes,
+    favoriteRecipes, inProgressRecipes } = useContext(RecipesContext);
   const [keyMap, setKeyMap] = useState('');
   const [api, setApi] = useState([]);
   const result = path.split('/')[1];
@@ -25,6 +25,9 @@ function RenderMapDetails({ path }) {
   const regex = /[\d+]/g;
   const id = url.match(regex).join('');
   const isRecipeFavorite = favoriteRecipes.includes(id);
+  const inProgress = Object.values(inProgressRecipes)
+    .reduce((acc, recipesId) => [...Object.keys(recipesId), ...acc], [])
+    .includes(id);
 
   useEffect(() => {
     if (result === 'comidas') {
@@ -161,7 +164,7 @@ function RenderMapDetails({ path }) {
                 data-testid="start-recipe-btn"
                 onClick={ () => history.push(`${url}/in-progress`) }
               >
-                {!changeBtn ? 'Continuar Receita' : 'Iniciar Receita' }
+                { inProgress ? 'Continuar Receita' : 'Iniciar Receita' }
               </button>
             </section>
           </section>
