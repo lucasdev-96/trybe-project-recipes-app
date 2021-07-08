@@ -83,4 +83,22 @@
 .btn {
   bottom: 0;
   position: fixed;
+  width: 100%;
+}
+
+.container_carousel {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 40px;
+  overflow-x: scroll;
+  width: 100vw;
+}
+
+.container_carousel > div {
+  margin: 25px;
+  width: 50vw;
+}
+
+.imgContainer {
+  width: 38vw;
 }

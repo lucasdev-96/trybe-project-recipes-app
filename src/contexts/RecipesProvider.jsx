@@ -20,6 +20,7 @@ export default function RecipesProvider({ children }) {
   const [drinksRecipes, setDrinksRecipes] = useState([]);
   const [foodDetailRecipes, setFoodDetailRecipes] = useState([]);
   const [drinkdetailRecipes, setdrinkDetailRecipes] = useState([]);
+  const [changeBtn, setChangeBtn] = useState(false);
 
   const [inProgressRecipes, setInProgressRecipes] = useState({
     cocktails: {},
@@ -94,6 +95,8 @@ export default function RecipesProvider({ children }) {
     setdrinkDetailRecipes,
     favoriteRecipes,
     setFavoriteRecipes,
+    changeBtn,
+    setChangeBtn,
   };
 
   useEffect(() => {
