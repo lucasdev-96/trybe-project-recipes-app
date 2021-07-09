@@ -22,6 +22,8 @@ export default function RecipesProvider({ children }) {
   const [drinkdetailRecipes, setdrinkDetailRecipes] = useState([]);
   const [changeBtn, setChangeBtn] = useState(false);
   const [doneRecipes, setDoneRecipes] = useState([]);
+  const [ingredientsFood, setIngredientsFood] = useState([]);
+  const [ingredientsDrink, setIngredientsDrink] = useState([]);
 
   const [inProgressRecipes, setInProgressRecipes] = useState({
     cocktails: {},
@@ -83,6 +85,10 @@ export default function RecipesProvider({ children }) {
       foods: foodDetailRecipes,
       drinks: drinkdetailRecipes,
     },
+    ingredients: {
+      foods: ingredientsFood,
+      drinks: ingredientsDrink,
+    },
     inProgressRecipes,
     setFoodsRecipes,
     setDrinksRecipes,
@@ -100,6 +106,8 @@ export default function RecipesProvider({ children }) {
     setChangeBtn,
     doneRecipes,
     setDoneRecipes,
+    setIngredientsFood,
+    setIngredientsDrink,
   };
 
   useEffect(() => {

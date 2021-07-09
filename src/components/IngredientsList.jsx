@@ -39,12 +39,8 @@ const IngredientsList = ({
                 checked={ hasUsed }
                 onChange={ handleIngredientChecked }
               />}
-                <span data-testid={ `${index}-ingredient-name-and-measure` }>
-                  {ingredient}
-                </span>
-                <span data-testid={ `${index}-ingredient-name-and-measure` }>
-                  {ingredientsMeasures[index]}
-                </span>
+                <span>{ingredient}</span>
+                <span>{ingredientsMeasures[index]}</span>
               </label>
             </li>
           );

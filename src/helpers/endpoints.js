@@ -26,3 +26,8 @@ export const detailsUrl = (id) => ({
   food: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
   drink: `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
 });
+
+export const ingredients = () => ({
+  foods: 'https://www.themealdb.com/api/json/v1/1/list.php?i=list',
+  drinks: 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list',
+});
