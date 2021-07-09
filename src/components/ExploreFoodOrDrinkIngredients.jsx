@@ -1,51 +1,44 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { // useHistory,
+import { useHistory,
   useRouteMatch } from 'react-router-dom';
 import RecipesContext from '../contexts/RecipesContext';
+import { fetchRecipes } from '../services/theMealAPI';
 import '../styles/mapDetails.css';
 
 function ExploreFoodOrDrink() {
   const { ingredients,
-    recipes,
-    // setFoodsRecipes,
-    // setDrinksRecipes,
+    setFoodsRecipes,
+    setDrinksRecipes,
   } = useContext(RecipesContext);
   const [keyName, setKeyName] = useState([]);
   const [ingredientName, setIngredientName] = useState('');
   const [urlImageName, setUrlImageName] = useState('');
-  // const [routeName, setRouteName] = useState('');
-  // const [filterIngrient, setFilterIngredient] = useState([]);
+  const [routeName, setRouteName] = useState('');
   const { url } = useRouteMatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     if (url.includes('comidas')) {
       setKeyName('foods');
       setIngredientName('strIngredient');
       setUrlImageName('themealdb');
-      // setRouteName('/comidas');
+      setRouteName('/comidas');
     }
     if (url.includes('bebidas')) {
       setKeyName('drinks');
       setIngredientName('strIngredient1');
       setUrlImageName('thecocktaildb');
-      // setRouteName('/bebidas');
+      setRouteName('/bebidas');
     }
   }, []);
-  const recipesResult = recipes[keyName];
 
-  const filterIngredientFn = (recipe = {}, name) => {
-    // const arraye = [];
-    if (recipesResult) {
-      const filter = Object.entries(recipe)
-        .filter((value) => value[0].includes('strIngredient') && value[1] === name);
-      console.log(filter);
-    }
-    // if (routeName === '/comidas') setFoodsRecipes(filterIngrient);
-    // if (routeName === '/bebidas') setDrinksRecipes(filterIngrient);
-    // history.push(routeName);
-    // console.log(filterIngrient)
+  const filterIngredientFn = async (name) => {
+    const response = await fetchRecipes(`https://www.${urlImageName}.com/api/json/v1/1/filter.php?i=${name}`);
+    if (routeName === '/comidas') setFoodsRecipes(response);
+    if (routeName === '/bebidas') setDrinksRecipes(response);
+    history.push(routeName);
   };
+
   return (
     <>
       {ingredients[keyName] ? ingredients[keyName].map((value, index) => {
@@ -55,7 +48,7 @@ function ExploreFoodOrDrink() {
             <h1 data-testid={ `${index}-card-name` }>{value[ingredientName]}</h1>
             <button
               onClick={ () => {
-                filterIngredientFn(recipesResult[0], value[ingredientName]);
+                filterIngredientFn(value[ingredientName]);
               } }
               type="button"
               className="effectBtn"
