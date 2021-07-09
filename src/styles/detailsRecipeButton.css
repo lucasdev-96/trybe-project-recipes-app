@@ -19,6 +19,16 @@
   gap: 8px;
 }
 
+button[data-testid=start-recipe-btn] {
+  position: fixed;
+  bottom: 0;
+}
+
+button.in-progress {
+  position: static;
+
+}
+
 .details-btn:disabled {
   background-color: gray;
 }

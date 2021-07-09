@@ -26,7 +26,8 @@ const IngredientsList = ({
           return (
             <li
               key={ index }
-              data-testid={ `${index}-ingredient-step` }
+              data-testid={ `${index}-ingredient${isRecipeInProgress
+                ? '-step' : '-name-and-measure'}` }
             >
               <label
                 htmlFor={ ingredient }

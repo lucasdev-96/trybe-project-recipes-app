@@ -17,6 +17,7 @@
   border-radius: 8px;
   width: 100%;
   margin-bottom: 16px;
+  border: none;
 }
 
 .video-container {
@@ -35,10 +36,10 @@
   margin-bottom: 40px;
   overflow-x: scroll;
   width: 100%;
-  gap: 18px;
 }
 
 
 .imgContainer {
   width: 38vw;
+  
 }

@@ -3,10 +3,10 @@ import { element } from 'prop-types';
 
 import '../styles/detailsRecipeButton.css';
 
-const DetailsRecipeButton = ({ children, ...props }) => (
+const DetailsRecipeButton = ({ children, className, ...props }) => (
   <div className="button-container">
     <button
-      className="details-btn"
+      className={ `details-btn ${className}` }
       type="button"
       { ...props }
     >

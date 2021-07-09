@@ -1,9 +1,14 @@
 import { element } from 'prop-types';
 import React from 'react';
 
+import '../styles/recipeCard.css';
+
 function RecipeCard({ children, ...props }) {
   return (
-    <div { ...props }>
+    <div
+      className="card-container"
+      { ...props }
+    >
       {children}
     </div>
   );

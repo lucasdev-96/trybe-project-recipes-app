@@ -117,7 +117,7 @@ function RenderMapDetails({ path }) {
                       src={ key[`str${keyNameCarousel}Thumb`] }
                       alt="slide"
                     />
-                    <h3 className="h2" data-testid={ `${index3}-recomendation-title` }>
+                    <h3 data-testid={ `${index3}-recomendation-title` }>
                       {key[`str${[keyNameCarousel]}`]}
                     </h3>
                   </RecipeCard>
@@ -129,6 +129,7 @@ function RenderMapDetails({ path }) {
               <DetailsRecipeButton
                 type="button"
                 data-testid="start-recipe-btn"
+                className={ inProgress && 'in-progress' }
               >
                 <img
                   src={ playIcon }
