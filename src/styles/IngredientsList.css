@@ -1,3 +1,44 @@
-.checked {
+.ingredients-container {
+  width: 90vw;
+  margin: auto;
+}
+
+.ingredients-container h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #252525;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.ingredients-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  background: #FFE3EC;
+  border-radius: 8px;
+  padding: 0 16px;
+}
+
+.ingredients-list label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ingredients-list label > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ingredients-list .checked {
   text-decoration: line-through;
 }

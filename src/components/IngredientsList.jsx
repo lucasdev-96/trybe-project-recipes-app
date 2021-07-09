@@ -18,9 +18,9 @@ const IngredientsList = ({
   }, [path]);
 
   return (
-    <>
+    <main className="ingredients-container">
       <h2>Ingredients</h2>
-      <ul id="ingredients-list">
+      <ul className="ingredients-list">
         { ingredients.length > 0 && ingredients.map((ingredient, index) => {
           const hasUsed = usedIngredients.includes(ingredient) && isRecipeInProgress;
           return (
@@ -32,21 +32,23 @@ const IngredientsList = ({
                 htmlFor={ ingredient }
                 className={ hasUsed ? 'checked' : '' }
               >
-                {isRecipeInProgress
+                <div>
+                  {isRecipeInProgress
               && <input
                 type="checkbox"
                 id={ ingredient }
                 checked={ hasUsed }
                 onChange={ handleIngredientChecked }
               />}
-                <span>{ingredient}</span>
+                  <span>{ingredient}</span>
+                </div>
                 <span>{ingredientsMeasures[index]}</span>
               </label>
             </li>
           );
         })}
       </ul>
-    </>
+    </main>
   );
 };
 

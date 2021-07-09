@@ -6,6 +6,11 @@
   font-family: 'Nunito', sans-serif;
 }
 
+body {
+  background: #fafafa;
+  width: 100%;
+}
+
 input, button, textarea {
   font-family: 'Nunito', sans-serif;
 }
