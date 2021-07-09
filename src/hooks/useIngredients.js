@@ -6,7 +6,6 @@ const useIngredients = (recipe = {}) => {
   const ingredientsMeasures = Object.entries(recipe)
     .filter((el) => el[0].includes('strMeasure') && el[1] !== '')
     .reduce((acc, el) => [...acc, el[1]], []);
-
   return {
     ingredients,
     ingredientsMeasures,

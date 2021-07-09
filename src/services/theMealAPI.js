@@ -1,3 +1,5 @@
+import { ingredients } from '../helpers/endpoints';
+
 export const fetchCategories = async (endpoint) => {
   const response = await fetch(endpoint);
   const categories = await response.json();
@@ -29,4 +31,14 @@ export const fetchRecipeDetails = async (endpoint) => {
   const recipeDetails = await response.json();
 
   return Object.values(recipeDetails)[0][0];
+};
+
+export const fetchIngredients = async (key, setState) => {
+  const eleven = 11;
+  const response = await fetch(ingredients()[key]);
+  const ingredientsResult = await response.json();
+  const result = Object.values(ingredientsResult)[0];
+  const filter = result.filter((ele, index) => index <= eleven);
+  if (filter) setState(filter);
+  else setState([]);
 };
