@@ -1,9 +1,9 @@
 .card-container {
+  background-color: #fff;
   border-radius: 8px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
   color: #252525;
   margin-right: 40px;
-  background-color: #fff;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .card-container img {

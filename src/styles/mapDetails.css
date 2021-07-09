@@ -1,28 +1,27 @@
 .FatherMap {
-  width: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-
 .father h2 {
+  color: #252525;
   font-size: 20px;
   font-weight: 600;
-  color: #252525;
 }
 
 .father iframe {
-  border-radius: 8px;
-  width: 100%;
-  margin-bottom: 16px;
   border: none;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  width: 100%;
 }
 
 .video-container {
-  width: 90vw;
   margin: auto;
+  width: 90vw;
 }
 
 .recommended-recipes {
@@ -41,5 +40,4 @@
 
 .imgContainer {
   width: 38vw;
-  
 }

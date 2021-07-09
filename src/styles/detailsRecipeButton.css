@@ -1,32 +1,32 @@
 .button-container {
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
+
 .details-btn {
-  margin-bottom: 16px;
-  font-size: 18px;
-  font-weight: 600;
+  align-items: center;
+  background: #D12A60;
+  border: none;
+  border-radius: 50px;
   color: #fafafa;
   display: flex;
-  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 8px;
   justify-content: space-between;
+  margin-bottom: 16px;
   padding: 8px;
   padding-right: 21px;
-  background: #D12A60;
-  border-radius: 50px;
-  border: none;
-  gap: 8px;
 }
 
 button[data-testid=start-recipe-btn] {
-  position: fixed;
   bottom: 0;
+  position: fixed;
 }
 
 button.in-progress {
   position: static;
-
 }
 
 .details-btn:disabled {
@@ -34,9 +34,9 @@ button.in-progress {
 }
 
 .details-btn img {
-  display: flex;
   align-items: center;
-  justify-content: center;
   background-color: #fafafa;
   border-radius: 50px;
+  display: flex;
+  justify-content: center;
 }

@@ -1,9 +1,9 @@
 .header-container {
-  width: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .fatherHeader {
@@ -24,15 +24,15 @@
 }
 
 .fatherHeader button img {
-  width: 24px;
   height: 24px;
+  width: 24px;
 }
 
 .fatherHeader h1 {
-  font-size: 24px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
   color: #C11D52 ;
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .searchButton:focus {

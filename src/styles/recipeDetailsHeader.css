@@ -5,27 +5,27 @@
 
 .recipe-details-header > img {
   max-height: 400px;
-  width: 100%;
   position: relative;
+  width: 100%;
 }
 
 .recipe-details-header .content {
   background-color: #fafafa;
   border-radius: 24px 24px 0px 0px;
-  position: relative;
-  margin-top: -24px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-top: -24px;
   padding: 16px;
+  position: relative;
+  width: 100%;
 }
 
 .recipeInfos h1{
-  max-width: 150px;
-  font-size: 24px;
   color: #C11D52;
+  font-size: 24px;
   font-weight: 300;
   margin-bottom: 0;
+  max-width: 150px;
 }
 
 .recipeInfos span {

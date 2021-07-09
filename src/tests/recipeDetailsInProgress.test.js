@@ -1,11 +1,10 @@
 import React from 'react';
-import { fireEvent, screen } from '@testing-library/dom';
+import { screen } from '@testing-library/dom';
 import App from '../App';
 import renderWithRouterAndProvider from './renderWithRouterAndProvider';
 import recipeDetailsData from './mocks/recipeDetailsData';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 describe('Tela de receita em progresso', () => {
   beforeEach(() => {
