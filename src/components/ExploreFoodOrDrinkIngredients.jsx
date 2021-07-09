@@ -13,8 +13,7 @@ function ExploreFoodOrDrink() {
   const [keyName, setKeyName] = useState([]);
   const [ingredientName, setIngredientName] = useState('');
   const [urlImageName, setUrlImageName] = useState('');
-  const [ // routeName,
-    setRouteName] = useState('');
+  // const [routeName, setRouteName] = useState('');
   // const [filterIngrient, setFilterIngredient] = useState([]);
   const { url } = useRouteMatch();
   // const history = useHistory();
@@ -24,13 +23,13 @@ function ExploreFoodOrDrink() {
       setKeyName('foods');
       setIngredientName('strIngredient');
       setUrlImageName('themealdb');
-      setRouteName('/comidas');
+      // setRouteName('/comidas');
     }
     if (url.includes('bebidas')) {
       setKeyName('drinks');
       setIngredientName('strIngredient1');
       setUrlImageName('thecocktaildb');
-      setRouteName('/bebidas');
+      // setRouteName('/bebidas');
     }
   }, []);
   const recipesResult = recipes[keyName];
