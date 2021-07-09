@@ -7,6 +7,9 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import useLocalStorage from '../hooks/useLocalStorage';
+import IngredientsList from './IngredientsList';
+import useIngredients from '../hooks/useIngredients';
+
 // para fazer o carrosel peguei as informaçoes deste site https://reactjsexample.com/a-flexible-and-responsive-carousel-component-for-react/
 function RenderMapDetails({ path }) {
   const { detailRecipes, recipes,
@@ -47,6 +50,8 @@ function RenderMapDetails({ path }) {
     }
   }, [foods, drinks]);
 
+  const { ingredients, ingredientsMeasures } = useIngredients(api[0]);
+
   const copyValidateFn = () => {
     if (copyValidate) setCopyValidate(false);
     else setCopyValidate(true);
@@ -66,15 +71,23 @@ function RenderMapDetails({ path }) {
     return resultFilter;
   };
 
+  const renderVideo = (idUrl) => (
+    <>
+      <h2 className="h2">Video</h2>
+      <iframe
+        allow="fullscreen"
+        data-testid="video"
+        title="a"
+        className="embed-responsive-item"
+        src={ `https://www.youtube.com/embed/${idUrl.split('?v=')[1]}` }
+      />
+    </>
+  );
+
   return (
     <div className="FatherMap">
       {api.map((valueApiKeys, index) => {
         const idUrl = valueApiKeys.strYoutube;
-        const entries = Object.entries(api[0]);
-        const ingredients = entries
-          .filter((key) => key[0].includes('strIngredient') && key[1]);
-        const measures = entries
-          .filter((key) => key[0].includes('strMeasure') && key[1]);
         return (
           <section className="father" key={ index }>
 
@@ -114,33 +127,18 @@ function RenderMapDetails({ path }) {
                 </button>
               </div>
               <p data-testid="recipe-category">{valueApiKeys[category]}</p>
-              <h2 className="h2">Ingredients</h2>
-              <ul className="list-group">
-                {ingredients.map((name, index2) => (
-                  <li
-                    className="list-group-item list"
-                    key={ index2 }
-                    data-testid={ `${index2}-ingredient-name-and-measure` }
-                  >
-                    {`${name[1]} - ${measures[index2][1]}`}
-                  </li>
-                ))}
-              </ul>
+              <IngredientsList
+                ingredients={ ingredients }
+                ingredientsMeasures={ ingredientsMeasures }
+              />
               <h2 className="h2">Instructions</h2>
               <div className="container-lg">
                 <p data-testid="instructions" className="text-justify intructionsText">
                   {valueApiKeys.strInstructions}
                 </p>
               </div>
-              <h2 className="h2">Video</h2>
               {
-                result === 'comidas' ? <iframe
-                  allow="fullscreen"
-                  data-testid="video"
-                  title="a"
-                  className="embed-responsive-item"
-                  src={ `https://www.youtube.com/embed/${idUrl.split('?v=')[1]}` }
-                />
+                result === 'comidas' ? renderVideo(idUrl)
                   : null
               }
               <h2 className="h2">Recommended</h2>

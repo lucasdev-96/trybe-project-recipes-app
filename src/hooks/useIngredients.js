@@ -1,4 +1,4 @@
-const useIngredients = (recipe) => {
+const useIngredients = (recipe = {}) => {
   const ingredients = Object.entries(recipe)
     .filter((el) => el[0].includes('strIngredient') && el[1])
     .reduce((acc, el) => [...acc, el[1]], []);
