@@ -157,7 +157,7 @@ function RenderMapDetails({ path }) {
               </div>
 
               <button
-                className="btn btn-primary"
+                className="btn-details"
                 type="button"
                 data-testid="start-recipe-btn"
                 onClick={ () => history.push(`${url}/in-progress`) }

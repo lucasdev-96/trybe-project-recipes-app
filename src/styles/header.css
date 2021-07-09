@@ -1,7 +1,6 @@
 .searchButton {
   background: unset;
   border: none;
-
 }
 
 .searchButton:focus {
@@ -9,8 +8,10 @@
 }
 
 .fatherHeader {
+  color: #c11d52;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .radio_buttons {

@@ -1,16 +1,10 @@
-.categoryList {
+.done-container {
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  list-style: none;
 }
 
-.category {
-  margin-left: 10px;
-}
-
-.btn-category {
+.done-container button {
   background-color: #c11d52;
   border: none;
   border-radius: 20px;
@@ -21,10 +15,5 @@
   outline: 0;
   outline-color: transparent;
   padding: 0 1px;
-  width: 180px;
-}
-
-.btn-category:focus {
-  border-color: transparent;
-  outline: none;
+  width: 100px;
 }

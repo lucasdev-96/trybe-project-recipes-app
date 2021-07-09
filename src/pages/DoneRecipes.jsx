@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import BottomMenu from '../components/BottomMenu';
 import DoneCards from '../components/DoneCards';
+import '../styles/DoneRecipes.css';
 
 function DoneRecipes() {
   return (

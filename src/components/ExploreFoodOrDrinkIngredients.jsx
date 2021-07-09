@@ -3,7 +3,8 @@ import { useHistory,
   useRouteMatch } from 'react-router-dom';
 import RecipesContext from '../contexts/RecipesContext';
 import { fetchRecipes } from '../services/theMealAPI';
-import '../styles/mapDetails.css';
+// import '../styles/mapDetails.css';
+import '../styles/ExploreIngredients.css';
 
 function ExploreFoodOrDrink() {
   const { ingredients,
@@ -44,8 +45,11 @@ function ExploreFoodOrDrink() {
       {ingredients[keyName] ? ingredients[keyName].map((value, index) => {
         const src = `https://www.${urlImageName}.com/images/ingredients/${value[ingredientName]}-Small.png`;
         return (
-          <div data-testid={ `${index}-ingredient-card` } key={ index }>
-            <h1 data-testid={ `${index}-card-name` }>{value[ingredientName]}</h1>
+          <div
+            className="explore-ingredients-container"
+            data-testid={ `${index}-ingredient-card` }
+            key={ index }
+          >
             <button
               onClick={ () => {
                 filterIngredientFn(value[ingredientName]);
@@ -57,9 +61,9 @@ function ExploreFoodOrDrink() {
                 data-testid={ `${index}-card-img` }
                 alt={ value[ingredientName] }
                 src={ src }
-                style={ { width: '300px' } }
               />
             </button>
+            <h3 data-testid={ `${index}-card-name` }>{value[ingredientName]}</h3>
           </div>
         );
       }) : null}
