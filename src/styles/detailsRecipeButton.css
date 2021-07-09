@@ -1,0 +1,32 @@
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.details-btn {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  padding-right: 21px;
+  background: #D12A60;
+  border-radius: 50px;
+  border: none;
+  gap: 8px;
+}
+
+.details-btn:disabled {
+  background-color: gray;
+}
+
+.details-btn img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border-radius: 50px;
+}

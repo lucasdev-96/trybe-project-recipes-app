@@ -1,88 +1,32 @@
-/* .FatherMap {
-  display: flex;
-  flex-direction: column;
-}
-
-.fatherImg {
-  display: flex;
-  height: 350px;
-  justify-content: center;
+.FatherMap {
   width: 100%;
-}
-
-
-.father {
   display: flex;
   flex-direction: column;
-}
-
-.infos {
   align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-family: Montserrat , sans-serif;
-}
-
-
-.infos > p {
-  color: silver;
-  font-weight: 600;
-  line-height: 22px;
-}
-
-.buttons {
-  display: flex;
   justify-content: center;
 }
 
-.infos > .buttons > h1 {
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 33px;
-  width: 170px;
-}
 
-.infos > h2 {
+.father h2 {
   font-size: 20px;
   font-weight: 600;
-  line-height: 27px;
+  color: #252525;
 }
 
-.effectBtn {
-  background-color: white;
-  border: none;
-}
-
-.effectBtn:focus {
-  outline: none;
-}
-
-.list {
-  background-color: #dee0e7;
-}
-
-
-.intructionsText {
-  padding: 20px;
-}
-
-.h2 {
-  font-size: 20px;
-  font-style: bold;
-  line-height: 27px;
-  margin-bottom: 20px;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.container-lg {
-  padding: 10px;
-}
-
-.btn {
-  bottom: 0;
-  position: fixed;
+.father iframe {
+  border-radius: 8px;
   width: 100%;
+  margin-bottom: 16px;
+}
+
+.video-container {
+  width: 90vw;
+  margin: auto;
+}
+
+.recommended-recipes {
+  margin: auto;
+  width: 90vw;
 }
 
 .container_carousel {
@@ -90,14 +34,11 @@
   flex-flow: row nowrap;
   margin-bottom: 40px;
   overflow-x: scroll;
-  width: 100vw;
+  width: 100%;
+  gap: 18px;
 }
 
-.container_carousel > div {
-  margin: 25px;
-  width: 50vw;
-}
 
 .imgContainer {
   width: 38vw;
-} */
+}

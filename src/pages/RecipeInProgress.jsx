@@ -7,11 +7,14 @@ import IngredientsList from '../components/IngredientsList';
 import RecipesContext from '../contexts/RecipesContext';
 import useLocalStorage from '../hooks/useLocalStorage';
 import useIngredients from '../hooks/useIngredients';
+import DetailsInstructions from '../components/DetailsIntructions';
+import DetailsRecipeButton from '../components/DetailsRecipeButton';
+import checkIcon from '../images/checkIcon.svg';
 
 const RecipeInProgress = () => {
   const { path } = useRouteMatch();
   const { id } = useParams();
-  const { inProgressRecipes, setChangeBtn } = useContext(RecipesContext);
+  const { inProgressRecipes } = useContext(RecipesContext);
   const { updateFavoriteRecipes, updateDoneRecipes } = useLocalStorage();
   const {
     addNewInProgressMealsRecipes,
@@ -55,7 +58,7 @@ const RecipeInProgress = () => {
 
   useEffect(() => {
     setIsRecipeCompleted(ingredients.length === usedIngredients.length);
-    setChangeBtn(isRecipeCompleted);
+    // setChangeBtn(isRecipeCompleted);
   }, [usedIngredients, ingredients]);
 
   // Busca a receita e seta o tipo dela
@@ -98,19 +101,21 @@ const RecipeInProgress = () => {
           usedIngredients={ usedIngredients }
         />
 
-        <p data-testid="instructions">{ recipe.strInstructions }</p>
+        <DetailsInstructions
+          instructions={ recipe.strInstructions }
+        />
 
         <Link
           to="/receitas-feitas"
         >
-          <button
-            type="button"
+          <DetailsRecipeButton
             data-testid="finish-recipe-btn"
             disabled={ !isRecipeCompleted }
             onClick={ () => handleDoneClick() }
           >
+            <img src={ checkIcon } alt="" />
             Finalizar receita
-          </button>
+          </DetailsRecipeButton>
         </Link>
       </main>
 

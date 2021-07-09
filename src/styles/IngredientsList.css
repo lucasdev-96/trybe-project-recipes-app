@@ -26,6 +26,10 @@
   padding: 0 16px;
 }
 
+.ingredients-list li:hover {
+  cursor: pointer;
+}
+
 .ingredients-list label {
   display: flex;
   align-items: center;
