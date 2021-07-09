@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 function RenderSelect({ setArea }) {
   const [apiAreaName, setApiAreaName] = useState([]);
 
-  const requestAreaName = () => {
-    fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=')
-      .then((response) => response.json())
-      .then((date) => {
-        setApiAreaName(date.meals.sort());
-      });
+  const requestAreaName = async () => {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list');
+    const date = await response.json();
+    setApiAreaName(date.meals);
   };
+
   const handleChange = (({ target: { value } }) => {
     setArea(value);
   });
@@ -19,13 +19,13 @@ function RenderSelect({ setArea }) {
   }, []);
 
   return (
-
     <div>
       { apiAreaName && (
         <select
           onChange={ handleChange }
           data-testid="explore-by-area-dropdown"
         >
+          <option data-testid="All-option">All</option>
           { apiAreaName.map(({ strArea }, index) => (
             <option data-testid={ `${strArea}-option` } key={ index }>
               {strArea}
@@ -36,5 +36,9 @@ function RenderSelect({ setArea }) {
     </div>
   );
 }
+
+RenderSelect.propTypes = {
+  setArea: PropTypes.func.isRequired,
+};
 
 export default RenderSelect;
