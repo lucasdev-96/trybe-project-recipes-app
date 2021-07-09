@@ -1,0 +1,45 @@
+.explore-drinks-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explore-drinks-container a {
+  margin-top: 20px;
+}
+
+.explore-drinks-container button {
+  background-color: #c11d52;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  width: 250px;
+}
+
+.explore-drinks-container h4 {
+  color: white;
+  font-weight: 800;
+  left: 30px;
+  position: relative;
+  text-shadow: 1px 1px 10px black;
+  top: -100px;
+}
+
+.explore-drinks-container button:hover {
+  opacity: 1;
+}
+
+.explore-drinks-container img {
+  border: none;
+  border-radius: 8px;
+  height: 150px;
+  margin-bottom: 10px;
+  width: 250px;
+}
+
+.explore-drinks-container img:hover {
+  opacity: 1;
+}

@@ -1,0 +1,56 @@
+.explore-foods-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explore-foods-container a {
+  margin-top: 20px;
+}
+
+.explore-foods-container button {
+  background-color: #c11d52;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  width: 250px;
+}
+
+.explore-foods-container h4 {
+  color: white;
+  font-weight: 800;
+  position: relative;
+  text-shadow: 1px 1px 10px black;
+  top: -100px;
+}
+
+.origin-explore-food {
+  left: 10px;
+}
+
+.ingredients-explore-food {
+  left: 30px;
+}
+
+.surpreenda-explore-food {
+  left: 30px;
+}
+
+.explore-foods-container button:hover {
+  opacity: 1;
+}
+
+.explore-foods-container img {
+  border: none;
+  border-radius: 8px;
+  height: 150px;
+  margin-bottom: 10px;
+  width: 250px;
+}
+
+.explore-foods-container img:hover {
+  opacity: 1;
+}

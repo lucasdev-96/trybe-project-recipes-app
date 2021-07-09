@@ -80,12 +80,6 @@
   padding: 10px;
 }
 
-.btn {
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-}
-
 .container_carousel {
   display: flex;
   flex-flow: row nowrap;
@@ -101,4 +95,14 @@
 
 .imgContainer {
   width: 38vw;
+}
+
+.btn-details {
+  background-color: #c11d52;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  height: 52px;
+  margin-bottom: 20px;
+  width: 300px;
 }

@@ -4,6 +4,7 @@ import ExploreFoodOrDrink from '../components/ExploreFoodOrDrinkIngredients';
 import BottomMenu from '../components/BottomMenu';
 import RecipesContext from '../contexts/RecipesContext';
 import { fetchIngredients } from '../services/theMealAPI';
+import '../styles/ExploreDrinksIngredients.css';
 
 function ExploreDrinksIngredients() {
   const { setIngredientsDrink } = useContext(RecipesContext);
@@ -16,7 +17,9 @@ function ExploreDrinksIngredients() {
   return (
     <div>
       <Header title="Explorar Ingredientes" />
-      <ExploreFoodOrDrink />
+      <div className="drink-ingredients">
+        <ExploreFoodOrDrink />
+      </div>
       <BottomMenu />
     </div>
   );
