@@ -6,7 +6,7 @@
 
 .details-btn {
   align-items: center;
-  background: #D12A60;
+  background: #d12a60;
   border: none;
   border-radius: 50px;
   color: #fafafa;
@@ -20,12 +20,12 @@
   padding-right: 21px;
 }
 
-button[data-testid=start-recipe-btn] {
+.startButton {
   bottom: 0;
   position: fixed;
 }
 
-button.in-progress {
+button .in-progress {
   position: static;
 }
 

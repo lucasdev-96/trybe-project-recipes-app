@@ -6,7 +6,7 @@ import '../styles/detailsRecipeButton.css';
 const DetailsRecipeButton = ({ children, className, ...props }) => (
   <div className="button-container">
     <button
-      className={ `details-btn ${className}` }
+      className={ `details-btn ${className} startButton` }
       data-testid="start-recipe-btn"
       type="button"
       { ...props }
