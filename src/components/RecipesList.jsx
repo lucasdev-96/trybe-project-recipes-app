@@ -15,29 +15,28 @@ export default function RecipesList({ recipes }) {
         const recipeImg = recipe.strMealThumb || recipe.strDrinkThumb;
 
         return (
-          <Link
-            key={ recipeID }
-            data-testid={ `${index}-recipe-card` }
-            to={ `${path}/${recipeID}` }
-          >
-            <div className="recipe-card">
-              <div className="recipe-card-img">
+          <div className="recipe-card" key={ recipeID }>
+            <div className="recipe-card-img">
+              <Link
+                data-testid={ `${index}-recipe-card` }
+                to={ `${path}/${recipeID}` }
+              >
                 <img
                   width="100"
                   src={ recipeImg }
                   alt={ recipeName }
                   data-testid={ `${index}-card-img` }
                 />
-              </div>
-              <div className="recipe-card-text">
-                <h2
-                  data-testid={ `${index}-card-name` }
-                >
-                  { recipeName }
-                </h2>
-              </div>
+              </Link>
             </div>
-          </Link>
+            <div className="recipe-card-text">
+              <h2
+                data-testid={ `${index}-card-name` }
+              >
+                { recipeName }
+              </h2>
+            </div>
+          </div>
         );
       })}
     </div>
