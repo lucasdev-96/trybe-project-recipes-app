@@ -34,9 +34,9 @@ function ExploreFoodOrDrink() {
   }, []);
 
   const filterIngredientFn = async (name) => {
-    const response = await fetchRecipes(`https://www.${urlImageName}.com/api/json/v1/1/filter.php?i=${name}`);
-    if (routeName === '/comidas') setFoodsRecipes(response);
-    if (routeName === '/bebidas') setDrinksRecipes(response);
+    const filterByIngredients = await fetchRecipes(`https://www.${urlImageName}.com/api/json/v1/1/filter.php?i=${name}`);
+    if (routeName === '/comidas') setFoodsRecipes(filterByIngredients);
+    if (routeName === '/bebidas') setDrinksRecipes(filterByIngredients);
     history.push(routeName);
   };
 
