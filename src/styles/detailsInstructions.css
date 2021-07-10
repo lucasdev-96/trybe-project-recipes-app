@@ -1,0 +1,17 @@
+.instructions-container {
+  margin: auto;
+  width: 90vw;
+}
+
+.instructions-container h2 {
+  color: #252525;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.instructions-container p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  margin-top: 8px;
+}

@@ -5,3 +5,12 @@
   outline: none;
   padding: 0;
 }
+
+body {
+  background: #fafafa;
+  width: 100%;
+}
+
+input, button, textarea {
+  font-family: 'Nunito', sans-serif;
+}

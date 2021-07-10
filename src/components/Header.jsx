@@ -36,23 +36,22 @@ function Header({ title }) {
   };
 
   const searchIcon = () => (
-    <div>
+    <div className="test">
       <button className="searchButton" onClick={ handleClickSearchButton } type="button">
         <img data-testid="search-top-btn" src={ Search } alt="Search" />
       </button>
-      {showButton && <SearchBar /> }
+
     </div>
   );
 
   const handleClickPerfil = () => history.push('/perfil');
 
   return (
-    <div>
-
+    <div className="header-container">
       <header
         className="fatherHeader"
       >
-        <button onClick={ handleClickPerfil } className="searchButton" type="button">
+        <button onClick={ handleClickPerfil } className="profile-icon" type="button">
           <img data-testid="profile-top-btn" src={ ProfileIcon } alt="profile" />
         </button>
         <h2 data-testid="page-title">
@@ -62,6 +61,8 @@ function Header({ title }) {
           ? null
           : searchIcon()}
       </header>
+
+      {showButton && <SearchBar /> }
     </div>
 
   );

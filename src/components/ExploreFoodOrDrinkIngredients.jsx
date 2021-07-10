@@ -14,8 +14,9 @@ function ExploreFoodOrDrink() {
   const [keyName, setKeyName] = useState([]);
   const [ingredientName, setIngredientName] = useState('');
   const [urlImageName, setUrlImageName] = useState('');
-  const [routeName, setRouteName] = useState('');
+
   const { url } = useRouteMatch();
+  const [routeName, setRouteName] = useState('');
   const history = useHistory();
 
   useEffect(() => {

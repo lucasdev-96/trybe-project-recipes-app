@@ -18,15 +18,16 @@ const IngredientsList = ({
   }, [path]);
 
   return (
-    <>
+    <main className="ingredients-container">
       <h2>Ingredients</h2>
-      <ul id="ingredients-list">
+      <ul className="ingredients-list">
         { ingredients.length > 0 && ingredients.map((ingredient, index) => {
           const hasUsed = usedIngredients.includes(ingredient) && isRecipeInProgress;
           return (
             <li
               key={ index }
-              data-testid={ `${index}-ingredient-step` }
+              data-testid={ `${index}-ingredient${isRecipeInProgress
+                ? '-step' : '-name-and-measure'}` }
             >
               <label
                 htmlFor={ ingredient }
@@ -39,14 +40,22 @@ const IngredientsList = ({
                 checked={ hasUsed }
                 onChange={ handleIngredientChecked }
               />}
-                <span>{ingredient}</span>
-                <span>{ingredientsMeasures[index]}</span>
+                <span
+                  data-testid={ `${index}-ingredient-name-and-measure` }
+                >
+                  {ingredient}
+                </span>
+                <span
+                  data-testid={ `${index}-ingredient-name-and-measure` }
+                >
+                  {ingredientsMeasures[index]}
+                </span>
               </label>
             </li>
           );
         })}
       </ul>
-    </>
+    </main>
   );
 };
 

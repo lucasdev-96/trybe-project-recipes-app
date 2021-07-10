@@ -1,3 +1,48 @@
-.checked {
+.ingredients-container {
+  margin: auto;
+  width: 90vw;
+}
+
+.ingredients-container h2 {
+  color: #252525;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.ingredients-list li {
+  background: #FFE3EC;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.ingredients-list li:hover {
+  cursor: pointer;
+}
+
+.ingredients-list label {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredients-list label > div {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ingredients-list .checked {
   text-decoration: line-through;
 }

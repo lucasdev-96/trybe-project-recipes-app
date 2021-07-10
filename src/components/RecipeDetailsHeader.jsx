@@ -41,11 +41,14 @@ const RecipeDetailsHeader = ({
         alt={ recipeTitle }
         data-testid="recipe-photo"
       />
+
       <div className="content">
-        <div>
+
+        <div className="recipeInfos">
           <h1 data-testid="recipe-title">{recipeTitle}</h1>
           <span data-testid="recipe-category">{recipeCategory}</span>
         </div>
+
         <div>
           <button
             type="button"
@@ -68,6 +71,7 @@ const RecipeDetailsHeader = ({
           </button>
         </div>
       </div>
+      <hr />
     </header>
   );
 };

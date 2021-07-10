@@ -1,0 +1,42 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.details-btn {
+  align-items: center;
+  background: #D12A60;
+  border: none;
+  border-radius: 50px;
+  color: #fafafa;
+  display: flex;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 8px;
+  padding-right: 21px;
+}
+
+button[data-testid=start-recipe-btn] {
+  bottom: 0;
+  position: fixed;
+}
+
+button.in-progress {
+  position: static;
+}
+
+.details-btn:disabled {
+  background-color: gray;
+}
+
+.details-btn img {
+  align-items: center;
+  background-color: #fafafa;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
