@@ -7,6 +7,7 @@ const DetailsRecipeButton = ({ children, className, ...props }) => (
   <div className="button-container">
     <button
       className={ `details-btn ${className}` }
+      data-testid="start-recipe-btn"
       type="button"
       { ...props }
     >

@@ -14,6 +14,7 @@ import Perfil from '../pages/Perfil';
 import DoneRecipes from '../pages/DoneRecipes';
 import FavoriteRecipes from '../pages/FavoriteRecipes';
 import Recipes from '../pages/Recipes';
+import NotFound from '../pages/NotFound';
 
 export default function Routes() {
   return (
@@ -46,6 +47,7 @@ export default function Routes() {
       <Route path="/perfil" component={ Perfil } />
       <Route path="/receitas-feitas" component={ DoneRecipes } />
       <Route path="/receitas-favoritas" component={ FavoriteRecipes } />
+      <Route path="/explorar/bebidas/area" component={ NotFound } />
     </Switch>
   );
 }

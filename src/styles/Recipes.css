@@ -12,10 +12,6 @@
   width: 300px;
 }
 
-.recipe-card:hover {
-  transform: scale(1.1);
-}
-
 .recipe-card-img img {
   border-radius: 8px 8px 0 0;
   height: 200px;
@@ -26,10 +22,15 @@
   align-items: center;
   background-color: white;
   border-radius: 0 0 8px 8px;
-  color: black;
+  color: #c11d52;
   display: flex;
+  justify-content: center;
   padding: 10px;
   width: 100%;
+}
+
+.recipe-card-text:focus {
+  text-decoration: none;
 }
 
 .card-container {

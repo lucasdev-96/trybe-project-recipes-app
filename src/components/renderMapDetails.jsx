@@ -126,11 +126,7 @@ function RenderMapDetails({ path }) {
             </section>
 
             <Link to={ `${url}/in-progress` }>
-              <DetailsRecipeButton
-                type="button"
-                data-testid="start-recipe-btn"
-                className={ inProgress && 'in-progress' }
-              >
+              <DetailsRecipeButton>
                 <img
                   src={ playIcon }
                   alt={ inProgress ? 'Continuar Receita' : 'Iniciar Receita' }
