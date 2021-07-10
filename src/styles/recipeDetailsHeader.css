@@ -11,7 +11,7 @@
 
 .recipe-details-header .content {
   background-color: #fafafa;
-  border-radius: 24px 24px 0px 0px;
+  border-radius: 24px 24px 0 0;
   display: flex;
   justify-content: space-between;
   margin-top: -24px;
@@ -20,8 +20,8 @@
   width: 100%;
 }
 
-.recipeInfos h1{
-  color: #C11D52;
+.recipeInfos h1 {
+  color: #c11d52;
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 0;
@@ -29,18 +29,18 @@
 }
 
 .recipeInfos span {
-  color: #bbbbbb;
+  color: #bbb;
   font-size: 16px;
 }
 
-.recipe-details-header .content  button {
+.recipe-details-header .content button {
   background: transparent;
   border: none;
   margin-left: 4px;
 }
 
 .recipe-details-header hr {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   margin: auto;
   width: 85vw;
 }
