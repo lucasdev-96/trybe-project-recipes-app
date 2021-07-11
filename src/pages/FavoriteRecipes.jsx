@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import copy from 'clipboard-copy';
 import Header from '../components/Header';
 import RecipesContext from '../contexts/RecipesContext';
 import shareIcon from '../images/shareIcon.svg';
@@ -6,6 +7,17 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteRecipes() {
   const { favoriteRecipes } = useContext(RecipesContext);
+  const [hasCopied, setHasCopied] = useState(false);
+
+  const handleCopyClick = (recipeType, recipeId) => {
+    copy(`http://localhost:3000/${recipeType}/${recipeId}`);
+
+    setHasCopied(true);
+    const messageTimer = 3000;
+    setTimeout(() => {
+      setHasCopied(false);
+    }, messageTimer);
+  };
 
   return (
     <div>
@@ -55,13 +67,15 @@ function FavoriteRecipes() {
               <div>
                 <button
                   type="button"
-
+                  onClick={ () => handleCopyClick(`${recipe.type}s`, recipe.id) }
                 >
                   <img
                     src={ shareIcon }
                     alt="Compartilhar"
                     data-testid={ `${index}-horizontal-share-btn` }
                   />
+
+                  {hasCopied && 'Link copiado!'}
                 </button>
 
                 <button
