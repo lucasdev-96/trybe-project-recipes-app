@@ -21,7 +21,7 @@ const RecipeDetailsHeader = ({
   const { id } = useParams();
   const [hasLinkCopied, setHasLinkCopied] = useState(false);
   const { favoriteRecipes } = useContext(RecipesContext);
-  const isRecipeFavorite = favoriteRecipes.includes(id);
+  const isRecipeFavorite = favoriteRecipes.some((recipe) => recipe.id === id);
 
   const handleShareClick = () => {
     copy(`http://localhost:3000${pathname.split('/in-progress')[0]}`);

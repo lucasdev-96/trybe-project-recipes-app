@@ -8,7 +8,7 @@ const useLocalStorage = () => {
     const storageKey = 'favoriteRecipes';
     const storage = JSON.parse(localStorage.getItem(storageKey)) || [];
 
-    return storage.map(({ id }) => id);
+    return storage;
   };
 
   const getDoneRecipes = () => {
@@ -41,13 +41,12 @@ const useLocalStorage = () => {
     setFavoriteRecipes(getFavoriteRecipes());
   };
 
-  const day = new Date().getDay();
-  const mounth = new Date().getMonth() + 1;
-  const year = new Date().getFullYear();
-
-  const date = `${day}/${mounth}/${year}`;
-
   const updateDoneRecipes = (recipe, recipeType) => {
+    const day = new Date().getDay();
+    const mounth = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+
+    const date = `${day}/${mounth}/${year}`;
     const recipeInfo = {
       id: recipe[`id${recipeType}`],
       type: recipeType === 'Meal' ? 'comida' : 'bebida',
