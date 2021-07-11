@@ -54,9 +54,9 @@ function Header({ title }) {
         <button onClick={ handleClickPerfil } className="profile-icon" type="button">
           <img data-testid="profile-top-btn" src={ ProfileIcon } alt="profile" />
         </button>
-        <h2 data-testid="page-title">
+        <h1 data-testid="page-title">
           {title}
-        </h2>
+        </h1>
         { verifyPathName()
           ? null
           : searchIcon()}
