@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import copy from 'clipboard-copy';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import useLocalStorage from '../hooks/useLocalStorage';
 import RecipesContext from '../contexts/RecipesContext';
@@ -79,13 +80,17 @@ function FavoriteRecipes() {
         <ul>
           {displayedRecipes.map((recipe, index) => (
             <li key={ recipe.id }>
-              <img
-                width="200"
-                src={ recipe.image }
-                alt={ recipe.name }
-                data-testid={ `${index}-horizontal-image` }
-              />
-              <h3 data-testid={ `${index}-horizontal-name` }>{ recipe.name }</h3>
+              <Link to={ `/${recipe.type}s/${recipe.id}` }>
+
+                <img
+                  width="200"
+                  src={ recipe.image }
+                  alt={ recipe.name }
+                  data-testid={ `${index}-horizontal-image` }
+                />
+
+                <h3 data-testid={ `${index}-horizontal-name` }>{ recipe.name }</h3>
+              </Link>
               <p data-testid={ `${index}-horizontal-top-text` }>
                 {recipe.area && `${recipe.area} - `}
                 {recipe.alcoholicOrNot || recipe.category}
