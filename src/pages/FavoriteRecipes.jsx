@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import copy from 'clipboard-copy';
 import Header from '../components/Header';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -10,6 +10,8 @@ function FavoriteRecipes() {
   const { favoriteRecipes } = useContext(RecipesContext);
   const [hasCopied, setHasCopied] = useState(false);
   const { updateFavoriteRecipes } = useLocalStorage();
+  const [filter, setFilter] = useState('All');
+  const [displayedRecipes, setDisplayedRecipes] = useState(favoriteRecipes);
 
   const handleCopyClick = (recipeType, recipeId) => {
     copy(`http://localhost:3000/${recipeType}/${recipeId}`);
@@ -21,6 +23,26 @@ function FavoriteRecipes() {
     }, messageTimer);
   };
 
+  const handleFilterClick = ({ target }) => {
+    setFilter(target.innerHTML);
+  };
+
+  useEffect(() => {
+    switch (filter) {
+    case 'All':
+      setDisplayedRecipes(favoriteRecipes);
+      break;
+    case 'Food':
+      setDisplayedRecipes(favoriteRecipes.filter(({ type }) => type === 'comida'));
+      break;
+    case 'Drinks':
+      setDisplayedRecipes(favoriteRecipes.filter(({ type }) => type === 'bebida'));
+      break;
+    default:
+      break;
+    }
+  }, [filter, favoriteRecipes]);
+
   return (
     <div>
       <Header title="Receitas Favoritas" />
@@ -30,6 +52,7 @@ function FavoriteRecipes() {
             <button
               type="button"
               data-testid="filter-by-all-btn"
+              onClick={ handleFilterClick }
             >
               All
             </button>
@@ -38,6 +61,7 @@ function FavoriteRecipes() {
             <button
               type="button"
               data-testid="filter-by-food-btn"
+              onClick={ handleFilterClick }
             >
               Food
             </button>
@@ -46,13 +70,14 @@ function FavoriteRecipes() {
             <button
               type="button"
               data-testid="filter-by-drink-btn"
+              onClick={ handleFilterClick }
             >
               Drinks
             </button>
           </li>
         </ul>
         <ul>
-          {favoriteRecipes.map((recipe, index) => (
+          {displayedRecipes.map((recipe, index) => (
             <li key={ recipe.id }>
               <img
                 width="200"
