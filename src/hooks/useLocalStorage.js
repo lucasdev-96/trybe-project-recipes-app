@@ -17,16 +17,19 @@ const useLocalStorage = () => {
     return storage;
   };
 
-  const updateFavoriteRecipes = (recipe, recipeType) => {
-    const recipeInfo = {
-      id: recipe[`id${recipeType}`],
-      type: recipeType === 'Meal' ? 'comida' : 'bebida',
-      area: recipe.strArea || '',
-      category: recipe.strCategory || '',
-      alcoholicOrNot: recipe.strAlcoholic || '',
-      name: recipe[`str${recipeType}`],
-      image: recipe[`str${recipeType}Thumb`],
-    };
+  const updateFavoriteRecipes = (recipe, recipeType, isFavorite) => {
+    let recipeInfo;
+    if (!isFavorite) {
+      recipeInfo = {
+        id: recipe[`id${recipeType}`],
+        type: recipeType === 'Meal' ? 'comida' : 'bebida',
+        area: recipe.strArea || '',
+        category: recipe.strCategory || '',
+        alcoholicOrNot: recipe.strAlcoholic || '',
+        name: recipe[`str${recipeType}`],
+        image: recipe[`str${recipeType}Thumb`],
+      };
+    } else { recipeInfo = recipe; }
 
     const storageKey = 'favoriteRecipes';
     const prevStorage = JSON.parse(localStorage.getItem(storageKey)) || [];

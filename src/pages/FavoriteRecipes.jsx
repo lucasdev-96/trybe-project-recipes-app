@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import copy from 'clipboard-copy';
 import Header from '../components/Header';
+import useLocalStorage from '../hooks/useLocalStorage';
 import RecipesContext from '../contexts/RecipesContext';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
@@ -8,6 +9,7 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 function FavoriteRecipes() {
   const { favoriteRecipes } = useContext(RecipesContext);
   const [hasCopied, setHasCopied] = useState(false);
+  const { updateFavoriteRecipes } = useLocalStorage();
 
   const handleCopyClick = (recipeType, recipeId) => {
     copy(`http://localhost:3000/${recipeType}/${recipeId}`);
@@ -80,7 +82,7 @@ function FavoriteRecipes() {
 
                 <button
                   type="button"
-
+                  onClick={ () => updateFavoriteRecipes(recipe, null, true) }
                 >
                   <img
                     src={ blackHeartIcon }
