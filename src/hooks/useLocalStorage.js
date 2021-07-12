@@ -69,7 +69,7 @@ const useLocalStorage = () => {
     setDoneRecipes(getDoneRecipes());
   };
 
-  return { updateFavoriteRecipes, getFavoriteRecipes, updateDoneRecipes };
+  return { updateFavoriteRecipes, getFavoriteRecipes, updateDoneRecipes, getDoneRecipes };
 };
 
 export default useLocalStorage;

@@ -13,6 +13,8 @@ import {
 import useLocalStorage from '../hooks/useLocalStorage';
 
 export default function RecipesProvider({ children }) {
+  const { getFavoriteRecipes, getDoneRecipes } = useLocalStorage();
+
   const [foodsCategories, setFoodsCategories] = useState([]);
   const [drinksCategories, setDrinksCategories] = useState([]);
   const [foodOrDrinksPathName, setfoodOrDrinksPathName] = useState('');
@@ -21,7 +23,7 @@ export default function RecipesProvider({ children }) {
   const [foodDetailRecipes, setFoodDetailRecipes] = useState([]);
   const [drinkdetailRecipes, setdrinkDetailRecipes] = useState([]);
   const [changeBtn, setChangeBtn] = useState(false);
-  const [doneRecipes, setDoneRecipes] = useState([]);
+  const [doneRecipes, setDoneRecipes] = useState(getDoneRecipes());
   const [ingredientsFood, setIngredientsFood] = useState([]);
   const [ingredientsDrink, setIngredientsDrink] = useState([]);
 
@@ -30,7 +32,6 @@ export default function RecipesProvider({ children }) {
     meals: {},
   });
 
-  const { getFavoriteRecipes } = useLocalStorage();
   const [favoriteRecipes, setFavoriteRecipes] = useState(getFavoriteRecipes());
 
   const addNewInProgressMealsRecipes = (id, ingredient) => {
