@@ -45,33 +45,35 @@ function DoneRecipes() {
     <div>
       <Header title="Receitas Feitas" />
       <div className="done-container">
-        <button
-          data-testid="filter-by-all-btn"
-          type="button"
-          onClick={ () => handleFilterAll() }
-        >
-          All
-        </button>
-        <button
-          data-testid="filter-by-food-btn"
-          type="button"
-          onClick={ () => handleFilterFood() }
-        >
-          Food
-        </button>
-        <button
-          data-testid="filter-by-drink-btn"
-          type="button"
-          onClick={ () => handleFilterDrink() }
-        >
-          Drink
-        </button>
+        <div className="header-btns">
+          <button
+            data-testid="filter-by-all-btn"
+            type="button"
+            onClick={ () => handleFilterAll() }
+          >
+            All
+          </button>
+          <button
+            data-testid="filter-by-food-btn"
+            type="button"
+            onClick={ () => handleFilterFood() }
+          >
+            Food
+          </button>
+          <button
+            data-testid="filter-by-drink-btn"
+            type="button"
+            onClick={ () => handleFilterDrink() }
+          >
+            Drink
+          </button>
+        </div>
         <div className="done-cards">
           {filteredDoneRecipes.map(({
             name, image, category, alcoholicOrNot, doneDate, area, type, id, tags,
           }, index) => (
-            <div key={ index }>
-              <Link to={ `/${type}s/${id}` }>
+            <div key={ index } className="cards">
+              <Link to={ `/${type}s/${id}` } className="img">
                 <img
                   data-testid={ `${index}-horizontal-image` }
                   src={ image }
@@ -95,6 +97,7 @@ function DoneRecipes() {
                 <button
                   type="button"
                   onClick={ () => handleShareClick(type, id) }
+                  className="share-btn"
                 >
                   <img
                     data-testid={ `${index}-horizontal-share-btn` }
@@ -109,7 +112,7 @@ function DoneRecipes() {
                     key={ i }
                     data-testid={ `${index}-${tagName}-horizontal-tag` }
                   >
-                    { tagName }
+                    <p>{ `${tagName} ` }</p>
                   </div>
                 ))}
               </div>

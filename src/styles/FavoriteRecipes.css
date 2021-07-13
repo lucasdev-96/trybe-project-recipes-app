@@ -1,11 +1,15 @@
-.done-container {
+.favorite-container {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.header-btns button {
+.filters {
+  list-style: none;
+}
+
+.filters button {
   background-color: #c11d52;
   border: none;
   border-radius: 20px;
@@ -19,15 +23,27 @@
   width: 100px;
 }
 
-.cards {
+.favorite-cards {
+  align-items: center;
   background-color: #c11d52;
   border-radius: 8px;
   box-shadow: 1px 1px 10px black;
+  display: flex;
+  justify-content: center;
   margin: 20px;
   padding: 26px 56px;
 }
 
-.share-btn {
+.favorite-cards a {
+  color: black;
+  text-align: center;
+}
+
+.favorite-cards h3 {
+  margin-top: 20px;
+}
+
+.favorite-cards button {
   background-color: white;
   border: none;
   border-radius: 20px;
@@ -41,20 +57,6 @@
   width: 100px;
 }
 
-.done-cards a {
-  color: black;
-}
-
-.img {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.doneCards-descriptions {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.btns-and-description {
+  margin-left: 16px;
 }

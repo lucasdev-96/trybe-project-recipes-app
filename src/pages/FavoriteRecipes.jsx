@@ -6,6 +6,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import RecipesContext from '../contexts/RecipesContext';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
+import '../styles/FavoriteRecipes.css';
 
 function FavoriteRecipes() {
   const { favoriteRecipes } = useContext(RecipesContext);
@@ -47,7 +48,7 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Receitas Favoritas" />
-      <main>
+      <main className="favorite-container">
         <ul className="filters">
           <li>
             <button
@@ -79,7 +80,7 @@ function FavoriteRecipes() {
         </ul>
         <ul>
           {displayedRecipes.map((recipe, index) => (
-            <li key={ recipe.id }>
+            <li key={ recipe.id } className="favorite-cards">
               <Link to={ `/${recipe.type}s/${recipe.id}` }>
 
                 <img
@@ -91,12 +92,12 @@ function FavoriteRecipes() {
 
                 <h3 data-testid={ `${index}-horizontal-name` }>{ recipe.name }</h3>
               </Link>
-              <p data-testid={ `${index}-horizontal-top-text` }>
-                {recipe.area && `${recipe.area} - `}
-                {recipe.alcoholicOrNot || recipe.category}
-              </p>
 
-              <div>
+              <div className="btns-and-description">
+                <p data-testid={ `${index}-horizontal-top-text` }>
+                  {recipe.area && `${recipe.area} - `}
+                  {recipe.alcoholicOrNot || recipe.category}
+                </p>
                 <button
                   type="button"
                   onClick={ () => handleCopyClick(`${recipe.type}s`, recipe.id) }
