@@ -39,13 +39,13 @@
 .btn-details-perfil {
   align-items: center;
   background-color: #c11d52;
-  display: flex;
   border-radius: 16px;
-  flex-direction: column;
   border: none;
+  display: flex;
+  flex-direction: column;
   color: white;
-  justify-content: space-evenly;
   font-size: 20px;
+  justify-content: space-evenly;
   height: 139px;
   margin-left: 15px;
   width: 139px;
