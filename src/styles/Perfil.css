@@ -1,0 +1,69 @@
+.fatherPerfil {
+  display: flex;
+  flex-direction:column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-around;
+  margin-top: -50px;
+}
+
+.perfilPicture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.perfilPicture > img {
+  width: 153px;
+  border: 10px solid #d93268;
+  border-radius:98px;
+}
+
+.perfilPicture > div {
+  display: flex;
+  background: whitesmoke;
+  align-items: center;
+  height: 52px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.perfilPicture > div > h2 {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.btn-details-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #c11d52;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  height: 139px;
+  width: 139px;
+  border-radius: 16px;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.FatherButtons-perfil {
+  display: flex;
+  justify-content: center;
+}
+
+
+.logout {
+  border: none;
+  background-color: white;
+  color: #d93268;;
+  font-weight: 900;
+  font-size:25px;
+  padding: 10px;
+}
+
