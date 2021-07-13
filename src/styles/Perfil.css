@@ -39,14 +39,14 @@
 .btn-details-perfil {
   align-items: center;
   background-color: #c11d52;
-  border-radius: 16px;
   border: none;
+  border-radius: 16px;
   display: flex;
-  flex-direction: column;
   color: white;
+  flex-direction: column;
   font-size: 20px;
-  justify-content: space-evenly;
   height: 139px;
+  justify-content: space-evenly;
   margin-left: 15px;
   width: 139px;
 }
