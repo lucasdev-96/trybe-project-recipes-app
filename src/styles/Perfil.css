@@ -1,33 +1,33 @@
 .fatherPerfil {
   display: flex;
-  flex-direction:column;
-  width: 100vw;
+  flex-direction: column;
   height: 100vh;
+  width: 100vw;
   justify-content: space-around;
   margin-top: -50px;
 }
 
 .perfilPicture {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 
 .perfilPicture > img {
-  width: 153px;
   border: 10px solid #d93268;
-  border-radius:98px;
+  border-radius: 98px;
+  width: 153px;
 }
 
 .perfilPicture > div {
-  display: flex;
-  background: whitesmoke;
   align-items: center;
+  background: whitesmoke;
+  display: flex;
   height: 52px;
   padding: 20px;
-  text-align: center;
   margin-top: 20px;
+  text-align: center;
 }
 
 .perfilPicture > div > h2 {
@@ -40,16 +40,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   background-color: #c11d52;
+  justify-content: space-evenly;
   border: none;
-  border-radius: 8px;
   color: white;
   height: 139px;
-  width: 139px;
   border-radius: 16px;
-  margin-left: 15px;
+  width: 139px;
   font-size: 20px;
+  margin-left: 15px;
 }
 
 .FatherButtons-perfil {
@@ -59,11 +58,10 @@
 
 
 .logout {
-  border: none;
   background-color: white;
-  color: #d93268;;
+  border: none;
+  color: #d93268;
   font-weight: 900;
-  font-size:25px;
+  font-size: 25px;
   padding: 10px;
 }
-
