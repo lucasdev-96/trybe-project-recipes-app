@@ -65,3 +65,7 @@
   font-weight: 900;
   padding: 10px;
 }
+
+.btn-details-perfil > div {
+  width: 100px;
+}
