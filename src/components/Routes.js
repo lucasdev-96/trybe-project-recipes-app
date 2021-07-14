@@ -47,7 +47,7 @@ export default function Routes() {
       <Route path="/perfil" component={ Perfil } />
       <Route path="/receitas-feitas" component={ DoneRecipes } />
       <Route path="/receitas-favoritas" component={ FavoriteRecipes } />
-      <Route path="/explorar/bebidas/area" component={ NotFound } />
+      <Route component={ NotFound } />
     </Switch>
   );
 }
