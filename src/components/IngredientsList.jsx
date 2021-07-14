@@ -33,18 +33,20 @@ const IngredientsList = ({
                 htmlFor={ ingredient }
                 className={ hasUsed ? 'checked' : '' }
               >
-                {isRecipeInProgress
+                <div>
+                  {isRecipeInProgress
               && <input
                 type="checkbox"
                 id={ ingredient }
                 checked={ hasUsed }
                 onChange={ handleIngredientChecked }
               />}
-                <span
-                  data-testid={ `${index}-ingredient-name-and-measure` }
-                >
-                  {ingredient}
-                </span>
+                  <span
+                    data-testid={ `${index}-ingredient-name-and-measure` }
+                  >
+                    {ingredient}
+                  </span>
+                </div>
                 <span
                   data-testid={ `${index}-ingredient-name-and-measure` }
                 >

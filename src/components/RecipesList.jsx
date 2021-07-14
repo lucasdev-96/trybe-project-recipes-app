@@ -8,14 +8,15 @@ export default function RecipesList({ recipes }) {
   const { path } = useRouteMatch();
 
   return (
-    <div>
+    <div className="recipe-list">
       {hasRecipes && recipes.map((recipe, index) => {
         const recipeID = recipe.idMeal || recipe.idDrink;
         const recipeName = recipe.strMeal || recipe.strDrink;
         const recipeImg = recipe.strMealThumb || recipe.strDrinkThumb;
+        const firstChild = index === 0 && 'first';
 
         return (
-          <div className="recipe-card" key={ recipeID }>
+          <div className={ `recipe-card ${firstChild}` } key={ recipeID }>
             <div className="recipe-card-img">
               <Link
                 data-testid={ `${index}-recipe-card` }

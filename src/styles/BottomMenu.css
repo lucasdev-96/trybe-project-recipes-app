@@ -17,3 +17,24 @@
   margin: auto;
   width: 90vw;
 }
+
+.destaque {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.destaque li {
+  background-color: #c11d52;
+  border-radius: 50px;
+  padding: 7px;
+  position: absolute;
+  top: -45px;
+}
+
+.destaque li img {
+  background-color: #fafafa;
+  border-radius: 50px;
+  padding: 10px;
+}
