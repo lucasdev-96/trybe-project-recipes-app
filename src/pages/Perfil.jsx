@@ -36,10 +36,10 @@ function Perfil() {
             onClick={ (() => history.push('/receitas-favoritas')) }
           >
             <img src={ favoriteRecipes } alt="favorite" />
+            <div>
+              Receitas Favoritas
+            </div>
 
-            Receitas
-            <br />
-            Favoritas
           </button>
           <button
             className="btn-details-perfil"
@@ -48,9 +48,10 @@ function Perfil() {
             onClick={ (() => history.push('/receitas-feitas')) }
           >
             <img src={ checkedRecipes } alt="checked" />
-            Receitas
-            <br />
-            Feitas
+            <div>
+              Receitas Feitas
+            </div>
+
           </button>
         </div>
         <button
