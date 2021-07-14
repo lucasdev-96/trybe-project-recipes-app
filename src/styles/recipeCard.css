@@ -1,17 +1,17 @@
-.card-container {
+.card-container-details {
   background-color: #fafafa;
   border-radius: 8px;
   box-shadow: 2px 2px 5px 1px rgba(42, 42, 42, 0.5);
   color: #252525;
-  margin-right: 16px;
+  margin-right: 18px;
 }
 
-.card-container img {
+.card-container-details img {
   border-radius: 8px 8px 0 0;
   width: 146px;
 }
 
-.card-container h3 {
+.card-container-details h3 {
   color: #c11d52;
   font-size: 24px;
   font-weight: 600;

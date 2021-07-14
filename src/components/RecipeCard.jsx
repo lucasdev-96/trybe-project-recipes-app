@@ -6,7 +6,7 @@ import '../styles/recipeCard.css';
 function RecipeCard({ children, ...props }) {
   return (
     <div
-      className="card-container"
+      className="card-container-details"
       { ...props }
     >
       {children}

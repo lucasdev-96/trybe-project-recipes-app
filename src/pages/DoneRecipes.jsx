@@ -8,8 +8,6 @@ import '../styles/DoneRecipes.css';
 
 const copy = require('clipboard-copy');
 
-// import DoneCards from '../components/DoneCards';
-
 function DoneRecipes() {
   const { doneRecipes } = useContext(RecipesContext);
 
