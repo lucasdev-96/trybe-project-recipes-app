@@ -27,7 +27,7 @@
 
 .recommended-recipes {
   margin: auto;
-  width: 74vw;
+  width: 90vw;
 }
 
 .container_carousel {
@@ -37,7 +37,6 @@
   overflow-x: scroll;
   width: 100%;
 }
-
 
 .imgContainer {
   width: 38vw;
