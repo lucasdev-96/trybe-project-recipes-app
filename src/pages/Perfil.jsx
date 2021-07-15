@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { MdEmail } from 'react-icons/md';
 import Header from '../components/Header';
@@ -7,12 +7,10 @@ import userImg from '../images/userImage.png';
 import favoriteRecipes from '../images/favoriteRecipes.svg';
 import checkedRecipes from '../images/checkedRecipes.svg';
 import '../styles/Perfil.css';
-import UserContext from '../contexts/UserContext';
 
 function Perfil() {
-  const { login: { email } } = useContext(UserContext);
-  // const user = JSON.parse(localStorage.getItem('user'));
-  // const { email } = user;
+  const user = JSON.parse(localStorage.getItem('user')) || { email: '' };
+  const { email } = user;
   const history = useHistory();
 
   function onClick() {

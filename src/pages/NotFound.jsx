@@ -10,7 +10,7 @@ function NotFound() {
       <img src={ NotFoundBg } alt="pagina não encontrada" />
 
       <h1>Página não encontrada</h1>
-      <span className="hide-info">Not found</span>
+      <span className="hide-info">Not Found</span>
 
       <Link to="/">
         Voltar para a página inicial
