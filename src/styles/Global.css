@@ -14,3 +14,8 @@ body {
 input, button, textarea {
   font-family: Nunito , sans-serif;
 }
+
+.hide-info {
+  opacity: 0;
+  position: absolute;
+}

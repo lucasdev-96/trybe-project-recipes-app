@@ -1,0 +1,18 @@
+.copied {
+  align-items: center;
+  backdrop-filter: blur(6.6px);
+  background: rgba(209, 42, 96, 0.28);
+  border: 2px solid rgba(209, 42, 96, 0.37);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #fafafa;
+  display: flex;
+  font-size: 18px;
+  font-weight: 600;
+  justify-content: center;
+  left: 0;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

@@ -6,6 +6,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import RecipesContext from '../contexts/RecipesContext';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
+import Copied from '../components/Copied';
 
 function FavoriteRecipes() {
   const { favoriteRecipes } = useContext(RecipesContext);
@@ -107,7 +108,6 @@ function FavoriteRecipes() {
                     data-testid={ `${index}-horizontal-share-btn` }
                   />
 
-                  {hasCopied && 'Link copiado!'}
                 </button>
 
                 <button
@@ -126,6 +126,7 @@ function FavoriteRecipes() {
           ))}
         </ul>
       </main>
+      {hasCopied && <Copied />}
     </div>
   );
 }

@@ -5,11 +5,13 @@ import Search from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/header.css';
 import ProfileIcon from '../images/profileIcon.svg';
+import useGravatar from '../hooks/useGravatar';
 
 function Header({ title }) {
   const history = useHistory();
   const { location: { pathname } } = history;
   const [showButton, setBtn] = useState(false);
+  const gravatar = useGravatar();
 
   const verifyPathName = () => {
     if (
@@ -52,7 +54,13 @@ function Header({ title }) {
         className="fatherHeader"
       >
         <button onClick={ handleClickPerfil } className="profile-icon" type="button">
-          <img data-testid="profile-top-btn" src={ ProfileIcon } alt="profile" />
+          <img
+            data-testid="profile-top-btn"
+            src={ ProfileIcon }
+            alt="profile"
+            className="hide-info"
+          />
+          <img src={ gravatar } alt="" />
         </button>
         <h1 data-testid="page-title">
           {title}

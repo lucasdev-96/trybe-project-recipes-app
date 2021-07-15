@@ -13,7 +13,10 @@ export default function BottomMenu() {
         <Link to="/comidas">
           <li><img data-testid="food-bottom-btn" src={ mealIcon } alt="" /></li>
         </Link>
-        <Link to="/explorar">
+        <Link
+          to="/explorar"
+          className="destaque"
+        >
           <li><img data-testid="explore-bottom-btn" src={ exploreIcon } alt="" /></li>
         </Link>
         <Link to="/bebidas">

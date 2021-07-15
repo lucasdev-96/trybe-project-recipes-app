@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
+  margin-bottom: 25px;
   margin-top: -50px;
   width: 100vw;
 }
@@ -15,9 +16,11 @@
 
 
 .perfilPicture > img {
-  border: 10px solid #d93268;
+  background-color: #d93268;
+  border: 10px solid #c11d52;
   border-radius: 98px;
-  width: 153px;
+  padding: 10px;
+  width: 160px;
 }
 
 .perfilPicture > div {
@@ -62,7 +65,7 @@
   border: none;
   color: #d93268;
   font-size: 25px;
-  font-weight: 900;
+  font-weight: 600;
   padding: 10px;
 }
 

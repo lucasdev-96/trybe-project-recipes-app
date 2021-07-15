@@ -3,13 +3,14 @@ import { useHistory } from 'react-router-dom';
 import { MdEmail } from 'react-icons/md';
 import Header from '../components/Header';
 import BottomMenu from '../components/BottomMenu';
-import userImg from '../images/userImage.png';
 import favoriteRecipes from '../images/favoriteRecipes.svg';
 import checkedRecipes from '../images/checkedRecipes.svg';
 import '../styles/Perfil.css';
+import useGravatar from '../hooks/useGravatar';
 
 function Perfil() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const gravatar = useGravatar();
+  const user = JSON.parse(localStorage.getItem('user')) || { email: '' };
   const { email } = user;
   const history = useHistory();
 
@@ -22,7 +23,7 @@ function Perfil() {
       <Header title="Perfil" />
       <div className="fatherPerfil">
         <div className="perfilPicture">
-          <img alt="profile" src={ userImg } />
+          <img alt="profile" src={ gravatar } />
           <div>
             <MdEmail />
             <h2 data-testid="profile-email">{ email }</h2>
