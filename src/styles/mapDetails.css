@@ -1,0 +1,53 @@
+.FatherMap {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.father h2 {
+  color: #252525;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.father iframe {
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.video-container {
+  margin: auto;
+  width: 90vw;
+}
+
+.recommended-recipes {
+  margin: auto;
+  width: 90vw;
+}
+
+.container_carousel {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 40px;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.imgContainer {
+  width: 38vw;
+}
+
+.btn-details {
+  background-color: #c11d52;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  height: 52px;
+  margin-bottom: 20px;
+  width: 300px;
+}

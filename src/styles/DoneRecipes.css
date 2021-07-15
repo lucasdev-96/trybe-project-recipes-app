@@ -1,0 +1,60 @@
+.done-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-btns button {
+  background-color: #c11d52;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  height: 26px;
+  margin: 2px;
+  outline: 0;
+  outline-color: transparent;
+  padding: 0 1px;
+  width: 100px;
+}
+
+.cards {
+  background-color: #c11d52;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px black;
+  margin: 20px;
+  padding: 26px 56px;
+}
+
+.share-btn {
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  height: 26px;
+  margin: 2px;
+  outline: 0;
+  outline-color: transparent;
+  padding: 0 1px;
+  width: 100px;
+}
+
+.done-cards a {
+  color: black;
+}
+
+.img {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.doneCards-descriptions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,41 @@
+.header-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.fatherHeader {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px 0;
+  width: 90vw;
+}
+
+.fatherHeader button {
+  align-items: center;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.fatherHeader button img {
+  border-radius: 8px;
+  height: 30px;
+  width: 30px;
+}
+
+.fatherHeader h1 {
+  color: #c11d52;
+  font-family: Nunito , sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.searchButton:focus {
+  outline: none;
+}

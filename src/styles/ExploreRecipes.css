@@ -1,0 +1,49 @@
+.explore-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explore-container a {
+  margin-top: 20px;
+}
+
+.explore-container h3 {
+  color: white;
+  font-weight: 800;
+  text-shadow: 1px 1px 10px black;
+}
+
+.comidas-h3 {
+  position: relative;
+  top: -120px;
+}
+
+.bebidas-h3 {
+  position: relative;
+  top: -120px;
+}
+
+.explore-container button {
+  background-color: #c11d52;
+  border: none;
+  border-radius: 8px;
+  height: 200px;
+}
+
+.explore-container img {
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.explore-comida {
+  height: 200px;
+  width: 250px;
+}
+
+.explore-bebida {
+  height: 200px;
+  width: 250px;
+}

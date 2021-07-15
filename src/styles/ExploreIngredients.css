@@ -1,0 +1,18 @@
+.explore-ingredients-container {
+  align-items: center;
+  background-color: #c11d52;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 250px;
+}
+
+.explore-ingredients-container img {
+  height: 180px;
+  width: 200px;
+}
