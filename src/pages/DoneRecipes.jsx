@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Copied from '../components/Copied';
 import Header from '../components/Header';
 import RecipesContext from '../contexts/RecipesContext';
 
@@ -102,7 +103,6 @@ function DoneRecipes() {
                     src={ shareIcon }
                     alt="Compartilhar"
                   />
-                  {hasLinkCopied && 'Link copiado!'}
                 </button>
 
                 {tags && tags.map((tagName, i) => (
@@ -118,6 +118,7 @@ function DoneRecipes() {
           ))}
         </div>
       </div>
+      {hasLinkCopied && <Copied />}
     </div>
   );
 }

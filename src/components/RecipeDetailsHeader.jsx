@@ -8,6 +8,7 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 import '../styles/recipeDetailsHeader.css';
 import RecipesContext from '../contexts/RecipesContext';
+import Copied from './Copied';
 
 const copy = require('clipboard-copy');
 
@@ -56,7 +57,7 @@ const RecipeDetailsHeader = ({
             onClick={ handleShareClick }
           >
             <img src={ shareIcon } alt="Compartilhar" />
-            {hasLinkCopied && 'Link copiado!'}
+            {hasLinkCopied && <Copied />}
           </button>
 
           <button
