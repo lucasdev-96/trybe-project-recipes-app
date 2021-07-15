@@ -1,5 +1,5 @@
 # Boas vindas ao repositório do projeto de Receitas!
-Esse foi um projeto incrível vou feito em um grupo de 4 pessoas, onde eu aprendi muito,
+Esse foi um projeto incrível foi feito em um grupo de 4 pessoas, onde eu aprendi muito,
 a proposta desse projeto foi criar um app de receitas aonde a gente pode navegar, filtrar,salvar receitas, finalizar receitas, favoritar receitas e etc.
 
 
