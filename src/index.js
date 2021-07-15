@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './styles/Global.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import RecipesProvider from './contexts/RecipesProvider';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <RecipesProvider>
       <App />
     </RecipesProvider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root'),
 );
 
