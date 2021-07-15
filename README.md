@@ -1,25 +1,15 @@
-### Termos de uso
-
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
-
----
-
 # Boas vindas ao repositório do projeto de Receitas!
+Esse foi um projeto incrível vou feito em um grupo de 4 pessoas, onde eu aprendi muito,
+a proposta desse projeto foi criar um app de receitas aonde a gente pode navegar, filtrar,salvar receitas, finalizar receitas, favoritar receitas e etc.
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
 
 ---
 
 # Sumário
 
 - [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
   - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
     - [Protótipo do projeto](#protótipo-do-projeto)
-  - [Data de entrega](#data-de-entrega)
-- [Intruções para entregar](#intruções-para-entregar)
   - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
