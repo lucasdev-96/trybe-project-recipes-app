@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/recipes-app/static/css/main.0febcf00.chunk.css",
-    "main.js": "/recipes-app/static/js/main.92d82608.chunk.js",
-    "main.js.map": "/recipes-app/static/js/main.92d82608.chunk.js.map",
+    "main.css": "/recipes-app/static/css/main.10ec3464.chunk.css",
+    "main.js": "/recipes-app/static/js/main.02b1ce89.chunk.js",
+    "main.js.map": "/recipes-app/static/js/main.02b1ce89.chunk.js.map",
     "runtime-main.js": "/recipes-app/static/js/runtime-main.1228032d.js",
     "runtime-main.js.map": "/recipes-app/static/js/runtime-main.1228032d.js.map",
     "static/css/2.95258f03.chunk.css": "/recipes-app/static/css/2.95258f03.chunk.css",
-    "static/js/2.8c24a716.chunk.js": "/recipes-app/static/js/2.8c24a716.chunk.js",
-    "static/js/2.8c24a716.chunk.js.map": "/recipes-app/static/js/2.8c24a716.chunk.js.map",
+    "static/js/2.9f3a86d9.chunk.js": "/recipes-app/static/js/2.9f3a86d9.chunk.js",
+    "static/js/2.9f3a86d9.chunk.js.map": "/recipes-app/static/js/2.9f3a86d9.chunk.js.map",
     "index.html": "/recipes-app/index.html",
-    "precache-manifest.0dfcdb3b7ad752118ae30d3156bb0aa5.js": "/recipes-app/precache-manifest.0dfcdb3b7ad752118ae30d3156bb0aa5.js",
+    "precache-manifest.6d850f7f11ee2fead5d226faa32bcf78.js": "/recipes-app/precache-manifest.6d850f7f11ee2fead5d226faa32bcf78.js",
     "service-worker.js": "/recipes-app/service-worker.js",
     "static/css/2.95258f03.chunk.css.map": "/recipes-app/static/css/2.95258f03.chunk.css.map",
-    "static/css/main.0febcf00.chunk.css.map": "/recipes-app/static/css/main.0febcf00.chunk.css.map",
-    "static/js/2.8c24a716.chunk.js.LICENSE.txt": "/recipes-app/static/js/2.8c24a716.chunk.js.LICENSE.txt",
+    "static/css/main.10ec3464.chunk.css.map": "/recipes-app/static/css/main.10ec3464.chunk.css.map",
+    "static/js/2.9f3a86d9.chunk.js.LICENSE.txt": "/recipes-app/static/js/2.9f3a86d9.chunk.js.LICENSE.txt",
     "static/media/NotFound.svg": "/recipes-app/static/media/NotFound.5285111a.svg",
     "static/media/Recipes.gif": "/recipes-app/static/media/Recipes.c2094f65.gif",
     "static/media/bebidas.jpg": "/recipes-app/static/media/bebidas.a04e7963.jpg",
@@ -40,8 +40,8 @@
   "entrypoints": [
     "static/js/runtime-main.1228032d.js",
     "static/css/2.95258f03.chunk.css",
-    "static/js/2.8c24a716.chunk.js",
-    "static/css/main.0febcf00.chunk.css",
-    "static/js/main.92d82608.chunk.js"
+    "static/js/2.9f3a86d9.chunk.js",
+    "static/css/main.10ec3464.chunk.css",
+    "static/js/main.02b1ce89.chunk.js"
   ]
 }
