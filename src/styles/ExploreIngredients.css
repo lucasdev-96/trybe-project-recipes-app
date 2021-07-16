@@ -2,17 +2,33 @@
   align-items: center;
   background-color: #c11d52;
   border-radius: 8px;
-  color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   height: 260px;
-  justify-content: center;
   margin-bottom: 30px;
-  text-align: center;
   width: 250px;
 }
 
 .explore-ingredients-container img {
   height: 180px;
-  width: 200px;
+  width: 100%;
+}
+
+.explore-ingredients-container button {
+  background-color: #c11d52;
+  border: none;
+}
+
+
+.explore-ingredients-container h3 {
+  background-color: white;
+  border: 2px solid rgb(233, 228, 228);
+  border-radius: 0 0 8px 8px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 42.09px;
+  margin-top: 40px;
+  padding: 10px;
+  width: 100%;
 }

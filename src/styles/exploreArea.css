@@ -1,0 +1,67 @@
+.explore-card img {
+  height: 110px;
+  width: 145px;
+}
+
+.explore-card-text {
+  background-color: white;
+  color: black;
+  padding-top: 10px;
+  text-align: center;
+}
+
+
+.fatherExplore {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  grid-gap: 16px;
+  gap: 16px;
+  margin-bottom: 100px;
+}
+
+.explore-card {
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px 1px rgb(42 42 42);
+  padding: 20px;
+  width: 145px;
+}
+
+.explore-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.explore-card button {
+  background-color: white;
+  border: none;
+}
+
+.firstExplore {
+  height: 160px;
+  margin-bottom: 40px;
+  padding: 20px;
+  width: 330px;
+}
+
+.firstExplore img {
+  width: 330px;
+}
+
+.first img {
+  width: 330px;
+}
+
+.select-explore {
+  background-color: white;
+  border-radius: 8px;
+  height: 52px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 90%;
+}

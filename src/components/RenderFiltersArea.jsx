@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/mapDetails.css';
 import { useHistory } from 'react-router-dom';
 import RecipesContext from '../contexts/RecipesContext';
+import '../styles/exploreArea.css';
 
 function RendersFiltersArea({ area }) {
   const [apiHandleArea, setApiHandleArea] = useState([]);
@@ -33,26 +33,40 @@ function RendersFiltersArea({ area }) {
   });
 
   return (
-    <div>
-      { apiHandleArea ? apiHandleArea.map(({ strMeal, strMealThumb, idMeal }, index) => (
-        <div key={ strMeal } data-testid={ `${index}-recipe-card` }>
-          <button
-            type="button"
-            className="effectBtn"
-            onClick={ () => handleClick(idMeal) }
-          >
-            <img
-              data-testid={ `${index}-card-img` }
-              style={ { width: '300px' } }
-              src={ strMealThumb }
-              alt={ strMeal }
-            />
-            <h1 data-testid={ `${index}-card-name` }>{strMeal}</h1>
-          </button>
-        </div>
-      )) : null }
+    <div className="all">
+      <div className="fatherExplore">
+        { apiHandleArea ? apiHandleArea
+          .map(({ strMeal, strMealThumb, idMeal }, index) => {
+            const firstChild = index === 0 && 'firstExplore';
+            return (
+              <div
+                className={ `explore-card ${firstChild}` }
+                key={ strMeal }
+                data-testid={ `${index}-recipe-card` }
+              >
+                <button
+                  type="button"
+                  onClick={ () => handleClick(idMeal) }
+                >
+                  <img
+                    data-testid={ `${index}-card-img` }
+                    src={ strMealThumb }
+                    alt={ strMeal }
+                  />
+                  <h3
+                    className="explore-card-text"
+                    data-testid={ `${index}-card-name` }
+                  >
+                    {strMeal}
+                  </h3>
+                </button>
+              </div>
+            );
+          }) : null }
 
+      </div>
     </div>
+
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/exploreArea.css';
 
 function RenderSelect({ setArea }) {
   const [apiAreaName, setApiAreaName] = useState([]);
@@ -22,6 +23,7 @@ function RenderSelect({ setArea }) {
     <div>
       { apiAreaName && (
         <select
+          className="select-explore"
           onChange={ handleChange }
           data-testid="explore-by-area-dropdown"
         >

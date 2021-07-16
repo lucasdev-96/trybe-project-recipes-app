@@ -25,6 +25,8 @@
   box-shadow: 1px 1px 10px black;
   margin: 20px;
   padding: 26px 56px;
+  width: 200px;
+  height: 300px;
 }
 
 .share-btn {
@@ -45,16 +47,38 @@
   color: black;
 }
 
-.img {
+.cards a img {
   align-items: center;
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
+  width: 70px;
+  border: 2px solid white;
+  border-radius: 8px;
 }
 
 .doneCards-descriptions {
   align-items: center;
   display: flex;
   flex-direction: column;
+  height: 100px;
   justify-content: center;
+  width: 100px;
+  margin-top: 50px;
+}
+
+
+.doneCards-descriptions > h3 {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.doneCards-descriptions a h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.doneCards-descriptions  h4 {
+  font-size: 20px;
+  font-weight: 700;
 }
