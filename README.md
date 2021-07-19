@@ -8,7 +8,7 @@ a proposta desse projeto foi criar um app de receitas aonde a gente pode navegar
 
 -Npm install
 
--Npm run
+-Npm start
 
 # Habilidades
 
