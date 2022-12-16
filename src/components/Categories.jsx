@@ -4,6 +4,7 @@ import '../styles/Categories.css';
 
 export default function Categories({ categories, handleCategoryClick }) {
   const hasCategories = categories.length > 0;
+  console.log(hasCategories);
 
   return (
     <nav>
